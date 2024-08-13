@@ -1,59 +1,66 @@
 import csv
-from selene import be
+from selene import be, query
 from selene.support.shared import browser
 from pypdf import PdfReader
 import allure
-
 from Data.products import product_1, product_2
+import requests
+import os
+import glob
 
+os.makedirs('content_folder', exist_ok=True)
+CONTENT_DIR = os.path.abspath('content_folder')
 
 class ExportFile:
     @allure.step('Click Print')
     def click_print(self):
         browser.element('[title="Print"]').should(be.clickable).click()
 
-    @allure.step('Click Export PDF')
-    def click_export_pdf(self):
+    @allure.step('Check Export PDF')
+    def check_export_pdf_button(self):
         browser.element('.rec').should(be.present).element('../..').element('[href*="foods.pdf"]').should(
-            be.clickable).click()
+            be.clickable)
 
-    @allure.step('Click Export CSV')
-    def click_export_csv(self):
+    @allure.step('Check Export CSV button')
+    def check_export_csv_button(self):
         browser.element('.rec').should(be.present).element('../..').element('[href*="foods.csv"]').should(
-            be.clickable).click()
+            be.clickable)
+
+    def download_pdf(self):
+        download_url = browser.element('.rec').should(be.present).element('../..').element('[href*="foods.pdf"]').get(
+        query.attribute("href"))
+
+        content = requests.get(url=download_url).content
+        file_path = os.path.join(CONTENT_DIR, 'pdf')
+        with open(file_path, "wb") as file:
+            file.write(content)
+
+    def download_csv(self):
+        download_url = browser.element('.rec').should(be.present).element('../..').element('[href*="foods.csv"]').get(
+            query.attribute("href"))
+
+        content = requests.get(url=download_url).content
+        file_path = os.path.join(CONTENT_DIR, 'csv')
+        with open(file_path, "wb") as file:
+            file.write(content)
+
+
 
     @allure.step('Check PDF file has products info')
     def check_pdf_file_has_products_info(self, *products):
-        import os
-        import glob
-
-        current_file_dir = os.path.dirname(__file__)
-        relative_path = os.path.join('../../..', 'tests', 'web', 'content_folder')
-        folder_path = os.path.abspath(os.path.join(current_file_dir, relative_path))
-        pdf_files = glob.glob(os.path.join(folder_path, '*.pdf'))
-        file_path = pdf_files[0]
-
         for product in products:
-            with open(file_path, "rb") as pdf_file:
+            with open(os.path.join(CONTENT_DIR, 'pdf'), "rb") as pdf_file:
                 reader = PdfReader(pdf_file)
                 text = reader.pages[0].extract_text()
                 assert "Food Diary Report" in text
                 assert product.name in text
                 assert product.calories_quantity in text
 
+
     @allure.step('Check CSV file has products info')
     def check_csv_file_has_product_info(self):
-        import os
-        import glob
 
-        current_file_dir = os.path.dirname(__file__)
-        relative_path = os.path.join('../../..', 'tests', 'web', 'content_folder')
-        folder_path = os.path.abspath(os.path.join(current_file_dir, relative_path))
-        csv_files = glob.glob(os.path.join(folder_path, '*.csv'))
-        file_path = csv_files[0]
-
-        #
-        with open(file_path) as csv_file:
+        with open(os.path.join(CONTENT_DIR, 'csv')) as csv_file:
             content = csv_file.read()
             csvreader = list(csv.reader(content.splitlines()))
             header_row = csvreader[1]

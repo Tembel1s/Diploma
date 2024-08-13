@@ -1,6 +1,6 @@
 import requests
 from jsonschema import validate
-from Schemas.schemas import upload_photo, frequent_foods
+from schemas.schemas import upload_photo, frequent_foods
 import os
 from dotenv import load_dotenv
 import allure

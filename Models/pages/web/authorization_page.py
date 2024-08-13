@@ -3,6 +3,8 @@ from selene import have, be
 import os
 from dotenv import load_dotenv
 import allure
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 load_dotenv()
 
@@ -37,4 +39,6 @@ class AuthorizationPage:
 
     @allure.step('Check unsuccessful authorization')
     def check_unsuccessful_authorization(self):
-        assert 'Login failed.' in browser.driver.switch_to.alert.text
+        alert = WebDriverWait(browser.driver, 10).until(EC.alert_is_present())
+
+        assert 'Login failed.' in alert.text

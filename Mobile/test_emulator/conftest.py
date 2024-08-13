@@ -5,7 +5,7 @@ from selene import browser
 import os
 from appium import webdriver
 import allure
-from utils import attach
+from utils import attach_bs
 
 
 @pytest.fixture(scope='session', autouse=True)
