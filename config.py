@@ -3,7 +3,7 @@ import os
 from appium.options.android import UiAutomator2Options
 
 import utils
-import utils.file
+# import utils.file
 
 remote_url = os.getenv('remote_url', 'http://127.0.0.1:4723')
 deviceName = os.getenv('deviceName', 'emulator-5554')
