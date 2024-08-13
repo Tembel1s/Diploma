@@ -20,7 +20,6 @@ def mobile_management():
             "platformName": "android",
             "udid": "emulator-5554",
             "appWaitActivity": "com.fatsecret.android.*",
-            # "app": "/Users/tembelis/PycharmProjects/qa_guru_python_13_19/base.apk",
             "app": "/Users/tembelis/PycharmProjects/Diploma/com.fatsecret.android-702.apk",
 
 
@@ -34,8 +33,8 @@ def mobile_management():
 
     yield
 
-    attach.add_screenshot(browser)
-    attach.add_xml(browser)
+    # attach.add_screenshot(browser)
+    # attach.add_xml(browser)
     # attach.add_video(browser)
 
     with allure.step('Close app session'):
