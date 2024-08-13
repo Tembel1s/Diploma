@@ -3,9 +3,10 @@ import requests
 import os
 from dotenv import load_dotenv
 
+
 load_dotenv()
-user_name = os.getenv("BS_USER_NAME")
-access_key = os.getenv("BS_ACCESS_KEY")
+user_name = os.getenv("BROWSERSTACK_USER_NAME")
+access_key = os.getenv("BROWSERSTACK_ACCESS_KEY")
 
 
 def add_screenshot(browser):
