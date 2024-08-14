@@ -1,8 +1,7 @@
-import time
-
 from selene import browser, query
 from selene import have, be
 import allure
+import time
 
 
 class FoodSearch:
@@ -76,7 +75,7 @@ class DeleteFood:
         while browser.all("[title='delete this item']").matching(have.size_greater_than(0)):
             browser.element("[title='delete this item']").should(be.present).click()
             browser.switch_to.alert.accept()
-            # time.sleep(5)
+            time.sleep(5)
 
 
 class CaloriesCount:

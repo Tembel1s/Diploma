@@ -44,6 +44,7 @@ def response_attaching_html(response: Response):
             extension='.json'
         )
 
+
 def response_attaching_json(response: Response):
     allure.attach(
         body=json.dumps(response.json(), indent=4, ensure_ascii=True),
@@ -65,6 +66,7 @@ def response_attaching_json(response: Response):
         attachment_type=AttachmentType.TEXT,
         extension='.txt'
     )
+
 
 def response_logging(response: Response):
     logging.info("Request: " + response.request.url)

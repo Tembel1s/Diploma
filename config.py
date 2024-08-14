@@ -27,11 +27,11 @@ def to_driver_options(context):
         options.set_capability('app', os.getenv('APP'))
         options.set_capability(
             'bstack:options', {
-                'projectName': 'Fatsecret project',
+                'projectName': 'Wikipedia project',
                 'buildName': 'browserstack-build-1',
                 'sessionName': 'BStack test',
-                'userName': os.getenv('BROWSERSTACK_USER_NAME'),
-                'accessKey': os.getenv('BROWSERSTACK_ACCESS_KEY'),
+                'userName': os.getenv('USER_NAME'),
+                'accessKey': os.getenv('ACCESS_KEY'),
             },
         )
 

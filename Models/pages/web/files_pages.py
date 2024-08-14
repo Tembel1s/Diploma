@@ -3,10 +3,9 @@ from selene import be, query
 from selene.support.shared import browser
 from pypdf import PdfReader
 import allure
-from Data.products import product_1, product_2
+from data.products import product_1, product_2
 import requests
 import os
-import glob
 
 os.makedirs('content_folder', exist_ok=True)
 CONTENT_DIR = os.path.abspath('content_folder')

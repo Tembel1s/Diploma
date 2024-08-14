@@ -7,10 +7,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-valid_login = os.getenv('VALID_LOGIN')
-valid_password = os.getenv('VALID_PASSWORD')
-user_name = os.getenv('USER_NAME')
-user_id = os.getenv('USER_ID')
+valid_login = os.getenv('FATSECRET_LOGIN')
+valid_password = os.getenv('FATSECRET_PASSWORD')
+user_name = os.getenv('FATSECRET_USER_NAME')
+user_id = os.getenv('FATSECRET_USER_ID')
 
 
 def get_cookies():

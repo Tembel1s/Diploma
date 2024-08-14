@@ -5,6 +5,9 @@ __pycache__/
 .env
 content_folder
 allure-results
+.env.bstack
+.env.emulator
+.env.real_device
 
 # C extensions
 *.so

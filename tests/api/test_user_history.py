@@ -4,15 +4,15 @@ from schemas.schemas import upload_photo, frequent_foods
 import os
 from dotenv import load_dotenv
 import allure
-from Data.products import product_1
+from data.products import product_1
 from allure_commons.types import Severity
 from utils.helpers import response_logging, response_attaching_html, response_attaching_json
 
 load_dotenv()
 
-login = os.getenv('VALID_LOGIN')
-password = os.getenv('VALID_PASSWORD')
-user_id = os.getenv('USER_ID')
+login = os.getenv('FATSECRET_LOGIN')
+password = os.getenv('FATSECRET_PASSWORD')
+user_id = os.getenv('FATSECRET_USER_ID')
 
 
 def get_cookies():

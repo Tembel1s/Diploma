@@ -9,10 +9,10 @@ from utils.helpers import response_logging, response_attaching_html, response_at
 
 load_dotenv()
 
-valid_login = os.getenv('VALID_LOGIN')
-valid_password = os.getenv('VALID_PASSWORD')
-user_name = os.getenv('USER_NAME')
-user_id = os.getenv('USER_ID')
+valid_login = os.getenv('FATSECRET_LOGIN')
+valid_password = os.getenv('FATSECRET_PASSWORD')
+user_name = os.getenv('FATSECRET_USER_NAME')
+user_id = os.getenv('FATSECRET_USER_ID')
 
 
 def get_cookies():
@@ -51,7 +51,7 @@ def test_view_user_profile(url):
     with allure.step('Check Status Code = 200'):
         assert response.status_code == 200
 
-    with allure.step('Check User Data are in response'):
+    with allure.step('Check User data are in response'):
         assert f"FatSecret member: {user_name}" in response.text
 
     with allure.step('Check "My Weight History" title is in response'):

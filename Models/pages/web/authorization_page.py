@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 load_dotenv()
 
-user_name = os.getenv('USER_NAME')
+user_name = os.getenv('FATSECRET_USER_NAME')
 
 
 class AuthorizationPage:
