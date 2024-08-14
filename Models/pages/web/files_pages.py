@@ -10,6 +10,7 @@ import os
 os.makedirs('content_folder', exist_ok=True)
 CONTENT_DIR = os.path.abspath('content_folder')
 
+
 class ExportFile:
     @allure.step('Click Print')
     def click_print(self):
@@ -27,7 +28,7 @@ class ExportFile:
 
     def download_pdf(self):
         download_url = browser.element('.rec').should(be.present).element('../..').element('[href*="foods.pdf"]').get(
-        query.attribute("href"))
+            query.attribute("href"))
 
         content = requests.get(url=download_url).content
         file_path = os.path.join(CONTENT_DIR, 'pdf')
@@ -43,8 +44,6 @@ class ExportFile:
         with open(file_path, "wb") as file:
             file.write(content)
 
-
-
     @allure.step('Check PDF file has products info')
     def check_pdf_file_has_products_info(self, *products):
         for product in products:
@@ -54,7 +53,6 @@ class ExportFile:
                 assert "Food Diary Report" in text
                 assert product.name in text
                 assert product.calories_quantity in text
-
 
     @allure.step('Check CSV file has products info')
     def check_csv_file_has_product_info(self):
