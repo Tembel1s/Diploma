@@ -3,6 +3,7 @@ from appium.webdriver.common.appiumby import AppiumBy
 from models.pages.mobile.mobile_page import Pages, UserFlow
 import allure
 
+
 @allure.tag('Mobile')
 @allure.feature('Android tests')
 @allure.story('Login')
@@ -31,7 +32,8 @@ def test_capcha():
                         with allure.step('Click Sign In'):
                             user_flow.click((AppiumBy.ID, 'com.fatsecret.android:id/sign_in_sign_in_button'))
                             with allure.step('Check captcha is appeared'):
-                                user_flow.check_pop_up((AppiumBy.XPATH, '//android.widget.TextView[@text="Quick Verification"]'))
+                                user_flow.check_pop_up(
+                                    (AppiumBy.XPATH, '//android.widget.TextView[@text="Quick Verification"]'))
 
 
 @allure.tag('Mobile')
@@ -79,19 +81,23 @@ def test_goal_setting_interface():
                 with allure.step('Click "Back"'):
                     user_flow.click_back()
                     with allure.step('Set "Maintain my current weight" goal'):
-                        user_flow.choose_option((AppiumBy.XPATH, '//android.widget.TextView[@text="Maintain my current weight"]'))
+                        user_flow.choose_option(
+                            (AppiumBy.XPATH, '//android.widget.TextView[@text="Maintain my current weight"]'))
                         with allure.step('Click "Next"'):
                             user_flow.click_next()
                             with allure.step('Check user directed to "What is your gender?" page'):
-                                user_flow.check_if_user_directed_to_page((AppiumBy.ID, 'com.fatsecret.android:id/title_text'),
-                                                                         page_text='What is your gender?')
+                                user_flow.check_if_user_directed_to_page(
+                                    (AppiumBy.ID, 'com.fatsecret.android:id/title_text'),
+                                    page_text='What is your gender?')
                                 with allure.step('Click "Back"'):
                                     user_flow.click_back()
                                     with allure.step('Set "Weight gain" goal'):
-                                        user_flow.choose_option((AppiumBy.XPATH, '//android.widget.TextView[@text="Weight gain"]'))
+                                        user_flow.choose_option(
+                                            (AppiumBy.XPATH, '//android.widget.TextView[@text="Weight gain"]'))
                                         with allure.step('Click "Next"'):
                                             user_flow.click_next()
                                             with allure.step(
                                                     'Check user directed to "How much weight would you like to lose?" page'):
-                                                user_flow.check_if_user_directed_to_page((AppiumBy.ID, 'com.fatsecret.android:id/title_text'),
-                                                                                         page_text='How much weight would you like to gain?')
+                                                user_flow.check_if_user_directed_to_page(
+                                                    (AppiumBy.ID, 'com.fatsecret.android:id/title_text'),
+                                                    page_text='How much weight would you like to gain?')
