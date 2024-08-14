@@ -7,11 +7,11 @@ import allure
 from allure_commons.types import Severity
 
 
-@allure.tag('UI')
-@allure.feature('UI tests')
-@allure.story('Export files')
-@allure.title('Export PDF file')
-@allure.link('https://fatsecret.com/')
+@allure.tag("UI")
+@allure.feature("UI tests")
+@allure.story("Export files")
+@allure.title("Export PDF file")
+@allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
 def test_export_pdf():
     add_food = AddFood()
@@ -27,14 +27,14 @@ def test_export_pdf():
     time.sleep(2)
     add_food.choose_product(product_1)
     time.sleep(2)
-    add_food.check_quantity_of_chosen_product('1')
+    add_food.check_quantity_of_chosen_product("1")
     time.sleep(2)
     add_food.clear_input()
 
     time.sleep(2)
     add_food.choose_product(product_2)
     time.sleep(2)
-    add_food.check_quantity_of_chosen_product('2')
+    add_food.check_quantity_of_chosen_product("2")
 
     time.sleep(2)
     add_food.add_selected()
@@ -51,11 +51,11 @@ def test_export_pdf():
     export_file.check_pdf_file_has_products_info(product_1, product_2)
 
 
-@allure.tag('UI')
-@allure.feature('UI tests')
-@allure.story('Export files')
-@allure.title('Export CSV file')
-@allure.link('https://fatsecret.com/')
+@allure.tag("UI")
+@allure.feature("UI tests")
+@allure.story("Export files")
+@allure.title("Export CSV file")
+@allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
 def test_export_csv():
     add_food = AddFood()
@@ -70,7 +70,7 @@ def test_export_csv():
     time.sleep(2)
     add_food.choose_product(product_1)
     time.sleep(2)
-    add_food.check_quantity_of_chosen_product('1')
+    add_food.check_quantity_of_chosen_product("1")
 
     time.sleep(2)
     add_food.clear_input()
@@ -78,7 +78,7 @@ def test_export_csv():
     add_food.choose_product(product_2)
 
     time.sleep(2)
-    add_food.check_quantity_of_chosen_product('2')
+    add_food.check_quantity_of_chosen_product("2")
     time.sleep(2)
     add_food.add_selected()
 

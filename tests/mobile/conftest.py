@@ -7,11 +7,7 @@ from utils import attach
 
 
 def pytest_addoption(parser):
-    parser.addoption(
-        "--context",
-        default="bstack",
-        help="Specify the test context"
-    )
+    parser.addoption("--context", default="bstack", help="Specify the test context")
 
 
 def pytest_configure(config):
@@ -26,11 +22,13 @@ def context(request):
     return request.config.getoption("--context")
 
 
-@pytest.fixture(scope='function', autouse=True)
+@pytest.fixture(scope="function", autouse=True)
 def mobile_management(context):
     options = config.to_driver_options(context=context)
 
-    browser.config.driver = webdriver.Remote(options.get_capability('remote_url'), options=options)
+    browser.config.driver = webdriver.Remote(
+        options.get_capability("remote_url"), options=options
+    )
     browser.config.timeout = 30.0
 
     yield
@@ -41,5 +39,5 @@ def mobile_management(context):
 
     browser.quit()
 
-    if context == 'bstack':
+    if context == "bstack":
         attach.add_video(session_id)

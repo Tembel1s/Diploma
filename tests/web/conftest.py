@@ -18,7 +18,7 @@ def browser_management(request):
 
     yield
 
-    if 'test_authorization' not in request.fspath.basename:
+    if "test_authorization" not in request.fspath.basename:
         add_food = AddFood()
         delete_food = DeleteFood()
 
@@ -26,6 +26,7 @@ def browser_management(request):
         delete_food.clear_diary()
 
     browser.quit()
+
 
 # import os
 # import pytest

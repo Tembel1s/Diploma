@@ -7,14 +7,15 @@ from allure_commons.types import Severity
 
 load_dotenv()
 
-valid_login = os.getenv('FATSECRET_LOGIN')
-valid_password = os.getenv('FATSECRET_PASSWORD')
+valid_login = os.getenv("FATSECRET_LOGIN")
+valid_password = os.getenv("FATSECRET_PASSWORD")
 
-@allure.tag('UI')
-@allure.feature('UI tests')
-@allure.story('Authorization')
-@allure.title('Successful authorization')
-@allure.link('https://fatsecret.com/')
+
+@allure.tag("UI")
+@allure.feature("UI tests")
+@allure.story("Authorization")
+@allure.title("Successful authorization")
+@allure.link("https://fatsecret.com/")
 @allure.severity(Severity.BLOCKER)
 def test_authorization():
     authorization_page = AuthorizationPage()
@@ -34,11 +35,12 @@ def test_authorization():
     time.sleep(2)
     authorization_page.check_successful_authorization()
 
-@allure.tag('UI')
-@allure.feature('UI tests')
-@allure.story('Authorization')
-@allure.title('Unsuccessful authorization (wrong password)')
-@allure.link('https://fatsecret.com/')
+
+@allure.tag("UI")
+@allure.feature("UI tests")
+@allure.story("Authorization")
+@allure.title("Unsuccessful authorization (wrong password)")
+@allure.link("https://fatsecret.com/")
 @allure.severity(Severity.CRITICAL)
 def test_authorization_invalid_password():
     authorization_page = AuthorizationPage()
@@ -51,7 +53,7 @@ def test_authorization_invalid_password():
 
     authorization_page.fill_login(valid_login)
     time.sleep(2)
-    authorization_page.fill_password('invalid password')
+    authorization_page.fill_password("invalid password")
     time.sleep(2)
     authorization_page.submit_credentials()
 
@@ -60,11 +62,11 @@ def test_authorization_invalid_password():
     authorization_page.check_unsuccessful_authorization()
 
 
-@allure.tag('UI')
-@allure.feature('UI tests')
-@allure.story('Authorization')
-@allure.title('Unsuccessful authorization (wrong login)')
-@allure.link('https://fatsecret.com/')
+@allure.tag("UI")
+@allure.feature("UI tests")
+@allure.story("Authorization")
+@allure.title("Unsuccessful authorization (wrong login)")
+@allure.link("https://fatsecret.com/")
 @allure.severity(Severity.CRITICAL)
 def test_authorization_wrong_login():
     authorization_page = AuthorizationPage()
@@ -74,7 +76,7 @@ def test_authorization_wrong_login():
     authorization_page.click_sign_in_button()
 
     time.sleep(2)
-    authorization_page.fill_login('invalid login')
+    authorization_page.fill_login("invalid login")
     time.sleep(2)
     authorization_page.fill_password(valid_password)
 
