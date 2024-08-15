@@ -1,6 +1,8 @@
 import allure
+import pytest
 
 
+@pytest.mark.skip_setup_browser
 @allure.id("33827")
 @allure.title("Вкладка MY FATSECRET")
 @allure.tag("UI")
