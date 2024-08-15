@@ -20,35 +20,35 @@ def test_export_pdf():
     export_file = ExportFile()
 
     authorization()
-    time.sleep(2)
+    # time.sleep(2)
 
     add_food.go_to_food_diary()
-    time.sleep(2)
+    # time.sleep(2)
     add_food.click_add_item()
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.choose_product(product_1)
-    time.sleep(2)
+    # time.sleep(2)
     add_food.check_quantity_of_chosen_product("1")
-    time.sleep(2)
+    # time.sleep(2)
     add_food.clear_input()
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.choose_product(product_2)
-    time.sleep(2)
+    # time.sleep(2)
     add_food.check_quantity_of_chosen_product("2")
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.add_selected()
 
-    time.sleep(2)
+    # time.sleep(2)
 
     export_file.click_print()
-    time.sleep(2)
+    # time.sleep(2)
     export_file.check_export_pdf_button()
     export_file.download_pdf()
 
-    time.sleep(2)
+    # time.sleep(2)
 
     export_file.check_pdf_file_has_products_info(product_1, product_2)
 
@@ -63,33 +63,33 @@ def test_export_csv():
     add_food = AddFood()
     export_file = ExportFile()
     authorization()
-    time.sleep(2)
+    # time.sleep(2)
 
     add_food.go_to_food_diary()
-    time.sleep(2)
+    # time.sleep(2)
     add_food.click_add_item()
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.choose_product(product_1)
-    time.sleep(2)
+    # time.sleep(2)
     add_food.check_quantity_of_chosen_product("1")
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.clear_input()
-    time.sleep(2)
+    # time.sleep(2)
     add_food.choose_product(product_2)
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.check_quantity_of_chosen_product("2")
-    time.sleep(2)
+    # time.sleep(2)
     add_food.add_selected()
 
-    time.sleep(2)
+    # time.sleep(2)
     export_file.click_print()
-    time.sleep(2)
+    # time.sleep(2)
     export_file.check_export_csv_button()
-    time.sleep(2)
+    # time.sleep(2)
     export_file.download_csv()
 
-    time.sleep(2)
+    # time.sleep(2)
     export_file.check_csv_file_has_product_info()

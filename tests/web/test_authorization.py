@@ -26,13 +26,13 @@ def test_authorization():
     authorization_page.open()
     authorization_page.click_sign_in_button()
 
-    time.sleep(2)
+    # time.sleep(2)
 
     authorization_page.fill_login(valid_login)
-    time.sleep(2)
+    # time.sleep(2)
     authorization_page.fill_password(valid_password)
 
-    time.sleep(2)
+    # time.sleep(2)
 
     authorization_page.submit_credentials()
 
@@ -49,15 +49,15 @@ def test_authorization_invalid_password():
     authorization_page = AuthorizationPage()
 
     authorization_page.open()
-    time.sleep(2)
+    # time.sleep(2)
     authorization_page.click_sign_in_button()
 
-    time.sleep(2)
+    # time.sleep(2)
 
     authorization_page.fill_login(valid_login)
-    time.sleep(2)
+    # time.sleep(2)
     authorization_page.fill_password("invalid password")
-    time.sleep(2)
+    # time.sleep(2)
     authorization_page.submit_credentials()
 
 
@@ -77,15 +77,15 @@ def test_authorization_wrong_login():
     authorization_page = AuthorizationPage()
 
     authorization_page.open()
-    time.sleep(2)
+    # time.sleep(2)
     authorization_page.click_sign_in_button()
 
-    time.sleep(2)
+    # time.sleep(2)
     authorization_page.fill_login("invalid login")
-    time.sleep(2)
+    # time.sleep(2)
     authorization_page.fill_password(valid_password)
 
-    time.sleep(2)
+    # time.sleep(2)
     authorization_page.submit_credentials()
 
     authorization_page.check_unsuccessful_authorization()
