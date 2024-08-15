@@ -107,30 +107,30 @@ def test_food_search():
 def test_add_food_to_diary():
     add_food = AddFood()
     authorization()
-    time.sleep(2)
+    time.sleep(1)
 
     add_food.go_to_food_diary()
     add_food.click_add_item()
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.choose_product(product_1)
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.check_quantity_of_chosen_product("1")
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.clear_input()
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.choose_product(product_2)
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.check_quantity_of_chosen_product("2")
 
-    time.sleep(2)
+    # time.sleep(2)
     add_food.add_selected()
     #
-    time.sleep(2)
+    # time.sleep(2)
     add_food.check_added_products_in_diary(product_1.name, product_2.name)
 
 
