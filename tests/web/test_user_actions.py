@@ -1,23 +1,34 @@
-import time
 import os
-from selene.support.shared import browser
+import time
+
+import allure
 import requests
+from allure_commons.types import Severity
+from dotenv import load_dotenv
+from selene.support.shared import browser
+
+from data.products import product_1, product_2
+from models.pages.web.home_page import HomePage
 from models.pages.web.user_actions_page import (
     FoodSearch,
     AddFood,
     DeleteFood,
     CaloriesCount,
 )
-from models.pages.web.home_page import HomePage
-from data.products import product_1, product_2
-from dotenv import load_dotenv
-import allure
-from allure_commons.types import Severity
 
 load_dotenv()
 
 login = os.getenv("FATSECRET_LOGIN")
 password = os.getenv("FATSECRET_PASSWORD")
+
+@allure.id("33811")
+@allure.title("Проверить что все работает ")
+@allure.label("owner", "allure8")
+def test_kak_dela():
+    with allure.step("Зайти и проверить что все работает"):
+        pass
+    with allure.step("Заплакать"):
+        pass
 
 
 def get_cookies():

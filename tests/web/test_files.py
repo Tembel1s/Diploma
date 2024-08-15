@@ -1,10 +1,12 @@
 import time
-from tests.web.test_user_actions import authorization
-from models.pages.web.user_actions_page import AddFood
-from models.pages.web.files_pages import ExportFile
-from data.products import product_1, product_2
+
 import allure
 from allure_commons.types import Severity
+
+from data.products import product_1, product_2
+from models.pages.web.files_pages import ExportFile
+from models.pages.web.user_actions_page import AddFood
+from tests.web.test_user_actions import authorization
 
 
 @allure.tag("UI")

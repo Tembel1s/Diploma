@@ -1,9 +1,11 @@
+import os
+
 import allure
 import requests
 from allure_commons.types import Severity
-from utils.helpers import response_attaching_html, response_logging
-import os
 from dotenv import load_dotenv
+
+from utils.helpers import response_attaching_html, response_logging
 
 load_dotenv()
 

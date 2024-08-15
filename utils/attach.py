@@ -1,7 +1,8 @@
-import allure
-from allure_commons.types import AttachmentType
-import requests
 import os
+
+import allure
+import requests
+from allure_commons.types import AttachmentType
 from selene import browser
 
 

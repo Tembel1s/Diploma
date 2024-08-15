@@ -1,5 +1,7 @@
 import os
+
 from appium.options.android import UiAutomator2Options
+
 from utils import file_path
 
 

@@ -1,9 +1,11 @@
-import time
-from models.pages.web.authorization_page import AuthorizationPage
 import os
-from dotenv import load_dotenv
+import time
+
 import allure
 from allure_commons.types import Severity
+from dotenv import load_dotenv
+
+from models.pages.web.authorization_page import AuthorizationPage
 
 load_dotenv()
 
