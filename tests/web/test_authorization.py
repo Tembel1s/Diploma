@@ -2,6 +2,7 @@ import os
 import time
 
 import allure
+import pytest
 from allure_commons.types import Severity
 from dotenv import load_dotenv
 
@@ -34,10 +35,10 @@ def test_authorization():
     time.sleep(2)
 
     authorization_page.submit_credentials()
-    time.sleep(2)
+
     authorization_page.check_successful_authorization()
 
-
+@pytest.mark.accept_alert
 @allure.tag("UI")
 @allure.feature("UI tests")
 @allure.story("Authorization")
@@ -59,11 +60,13 @@ def test_authorization_invalid_password():
     time.sleep(2)
     authorization_page.submit_credentials()
 
-    time.sleep(2)
+
 
     authorization_page.check_unsuccessful_authorization()
 
 
+
+@pytest.mark.accept_alert
 @allure.tag("UI")
 @allure.feature("UI tests")
 @allure.story("Authorization")
@@ -84,8 +87,5 @@ def test_authorization_wrong_login():
 
     time.sleep(2)
     authorization_page.submit_credentials()
-    #
-    time.sleep(2)
 
     authorization_page.check_unsuccessful_authorization()
-    time.sleep(2)

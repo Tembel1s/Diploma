@@ -50,8 +50,9 @@ def setup_browser(request):
 
         yield
 
+        if "accept_alert" in request.keywords:
+            browser.driver.switch_to.alert.accept()
         attach.add_screenshot()
-        attach.add_xml()
         attach.add_video_web()
         attach.add_logs()
 
@@ -63,3 +64,5 @@ def setup_browser(request):
             delete_food.clear_diary()
 
         browser.quit()
+
+

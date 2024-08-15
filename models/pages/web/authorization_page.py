@@ -44,3 +44,7 @@ class AuthorizationPage:
         alert = WebDriverWait(browser.driver, 10).until(EC.alert_is_present())
 
         assert "Login failed." in alert.text
+
+    @allure.step("Accept alert")
+    def accept_alert(self):
+        browser.driver.switch_to.alert.accept()

@@ -5,7 +5,7 @@ import pytest
 @pytest.mark.skip_setup_browser
 @allure.id("33827")
 @allure.title("Вкладка MY FATSECRET")
-@allure.tag("UI")
+@allure.tag("UI", "Manual")
 @allure.label("owner", "allure8")
 def test_my_fatsecret_tab():
     with allure.step("Проверить наличие блока пользовательского меню"):

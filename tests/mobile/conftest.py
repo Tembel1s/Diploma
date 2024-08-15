@@ -35,7 +35,6 @@ def mobile_management(context):
     yield
 
     attach.add_screenshot()
-    attach.add_xml()
     session_id = browser.driver.session_id
 
     browser.quit()
