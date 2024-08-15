@@ -141,7 +141,7 @@ def test_goal_setting_interface():
                                         with allure.step('Click "Next"'):
                                             user_flow.click_next()
                                             with allure.step(
-                                                'Check user directed to "How much weight would you like to lose?" page'
+                                                'Check user directed to "How much weight would you like to gain?" page'
                                             ):
                                                 user_flow.check_if_user_directed_to_page(
                                                     (

@@ -21,15 +21,6 @@ load_dotenv()
 login = os.getenv("FATSECRET_LOGIN")
 password = os.getenv("FATSECRET_PASSWORD")
 
-@allure.id("33811")
-@allure.title("Проверить что все работает ")
-@allure.label("owner", "allure8")
-def test_kak_dela():
-    with allure.step("Зайти и проверить что все работает"):
-        pass
-    with allure.step("Заплакать"):
-        pass
-
 
 def get_cookies():
     form_data = {
