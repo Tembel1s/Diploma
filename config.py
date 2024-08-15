@@ -13,12 +13,14 @@ def to_driver_options(context):
         options.set_capability("deviceName", os.getenv("DEVICE_NAME"))
         options.set_capability("appWaitActivity", os.getenv("APP_WAIT_ACTIVITY"))
         options.set_capability("app", file_path.relative_path(os.getenv("APP")))
+        options.set_capability("appium:autoGrantPermissions", "true")
 
     if context == "local_real_device":
         options.set_capability("remote_url", os.getenv("REMOTE_URL"))
         options.set_capability("deviceName", os.getenv("DEVICE_NAME"))
         options.set_capability("appWaitActivity", os.getenv("APP_WAIT_ACTIVITY"))
         options.set_capability("app", file_path.relative_path(os.getenv("APP")))
+        options.set_capability("appium:autoGrantPermissions", "true")
 
     if context == "bstack":
         options.set_capability("remote_url", os.getenv("REMOTE_URL"))
@@ -27,6 +29,7 @@ def to_driver_options(context):
         options.set_capability("platformVersion", os.getenv("PLATFORM_VERSION"))
         options.set_capability("appWaitActivity", os.getenv("APP_WAIT_ACTIVITY"))
         options.set_capability("app", os.getenv("APP"))
+        options.set_capability("appium:autoGrantPermissions", "true")
         options.set_capability(
             "bstack:options",
             {
