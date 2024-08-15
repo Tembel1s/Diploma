@@ -2,86 +2,87 @@ import allure
 import pytest
 
 
-@pytest.mark.skip_setup_browser
 @allure.id("33827")
-@allure.title("Вкладка MY FATSECRET")
-@allure.tag("UI", "Manual")
+@allure.title("My FatSecret tab")
+@allure.tag("UI", "skip_setup_browser")
+@allure.label("suite", "test_pages_design")
 @allure.label("owner", "allure8")
+@pytest.mark.skip_setup_browser
 def test_my_fatsecret_tab():
-    with allure.step("Проверить наличие блока пользовательского меню"):
+    with allure.step("Check the User Menu Section is present"):
         with allure.step("Expected Result"):
-            with allure.step("Блок в наличии"):
+            with allure.step("The Section is present"):
                 pass
-    with allure.step("Проверить соответствие блока макету"):
+    with allure.step("Check the Section complies with the Design"):
         with allure.step("Expected Result"):
-            with allure.step("Блок соответствует макету"):
+            with allure.step("The Section complies with the Design"):
                 pass
-    with allure.step("Проверить наличие хедера"):
+    with allure.step("Check the User Menu Section is present"):
         with allure.step("Expected Result"):
-            with allure.step("Хедер в наличии"):
+            with allure.step("The Header  is present"):
                 pass
-    with allure.step("Проверить соответствие хедера макету"):
+    with allure.step("Check the Header complies with the Design"):
         with allure.step("Expected Result"):
-            with allure.step("Хедер соответствует макету"):
+            with allure.step("The Header complies with the Design"):
                 pass
-    with allure.step("Проверить что вкладка MY FATSECRET активирована"):
+    with allure.step("Check the My FatSecret tab is activated"):
         with allure.step("Expected Result"):
-            with allure.step("Вкладка активирована"):
+            with allure.step("My FatSecret tab is activated"):
                 pass
-    with allure.step("Проверить что все остальные вкладки деактивированы"):
+    with allure.step("Check all the other tabs are deactivated"):
         with allure.step("Expected Result"):
-            with allure.step("Все остальные вкладки деактивированы"):
+            with allure.step("All the other tabs are deactivated"):
                 pass
-    with allure.step("Проверить наличие блока с пользовательской статистикой за день"):
-        with allure.step("Проверить соответствие блока макету"):
+    with allure.step("Check the User Daily Stats Section is present"):
+        with allure.step("Check the Section complies with the Design"):
             with allure.step("Expected Result"):
-                with allure.step("Блок соответствует макету"):
+                with allure.step("The Section complies with the Design"):
                     pass
-    with allure.step("Проверить наличие блока My FatSecret"):
+    with allure.step("Check the My FatSecret Section is present"):
         with allure.step("Expected Result"):
-            with allure.step("Блок в наличии"):
+            with allure.step("The Section is present"):
                 pass
-    with allure.step("Проверить соответствие блока макету"):
+    with allure.step("Check the Section complies with the Design"):
         with allure.step("Expected Result"):
-            with allure.step("Блок соответствует макету"):
+            with allure.step("The Section complies with the Design"):
                 pass
-    with allure.step("Проверить наличие блока My Messages"):
+    with allure.step("Check the My Messages Section is present"):
         with allure.step("Expected Result"):
-            with allure.step("Блок в наличии"):
+            with allure.step("The Section is present"):
                 pass
-    with allure.step("Проверить соответствие блока макету"):
+    with allure.step("Check the Section complies with the Design"):
         with allure.step("Expected Result"):
-            with allure.step("Блок соответствует макету"):
+            with allure.step("The Section complies with the Design"):
                 pass
-    with allure.step("Проверить наличие блока My Toolbox"):
+    with allure.step("Check the My Toolbox Section is present"):
         with allure.step("Expected Result"):
-            with allure.step("Блок в наличии"):
+            with allure.step("The Section is present"):
                 pass
-    with allure.step("Проверить что блок соответствует макету"):
+    with allure.step("Check the Section complies with the Design"):
         with allure.step("Expected Result"):
-            with allure.step("Блок соответствует макету"):
+            with allure.step("The Section complies with the Design"):
                 pass
-    with allure.step("Проверить наличие блока Recent Activity"):
+    with allure.step("Check the Recent Activity Section is present"):
         with allure.step("Expected Result"):
-            with allure.step("Блок в наличии"):
+            with allure.step("The Section is present"):
                 pass
-    with allure.step("Проверить наличие блока Get the App (в нижней части сайта)"):
+    with allure.step("Check the Get the App Section is present"):
         with allure.step("Expected Result"):
-            with allure.step("Футер в наличии"):
+            with allure.step("The Section is present"):
                 pass
-    with allure.step("Проверить соответствие блока  макету"):
+    with allure.step("Check the Section complies with the Design"):
         with allure.step("Expected Result"):
-            with allure.step("Блок соответствует макету"):
+            with allure.step("The Section complies with the Design"):
                 pass
-    with allure.step("Проверить наличие футера сайта"):
+    with allure.step("Check the Website Footer is present"):
         with allure.step("Expected Result"):
-            with allure.step("Футер в наличии"):
+            with allure.step("The Footer is present"):
                 pass
-    with allure.step("Проверить соответствие футера макету"):
+    with allure.step("Check the Footer complies with the Design"):
         with allure.step("Expected Result"):
-            with allure.step("Футер соответствует макету"):
+            with allure.step("The Footer complies with the Design"):
                 pass
-    with allure.step("Проверить соответствие страницы макету"):
+    with allure.step("Check the Page  complies with the Design"):
         with allure.step("Expected Result"):
-            with allure.step("Страница соответствует макету"):
+            with allure.step("The Page complies with the Design"):
                 pass
