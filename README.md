@@ -45,7 +45,7 @@
 
 ### Запуск автотестов выполняется на сервере Jenkins
 
-> <a target="_blank" href="FatSecret_tests_project/">Ссылка на проект в Jenkins</a>
+> <a target="_blank" href="https://jenkins.autotests.cloud/job/FatSecret_tests_project/">Ссылка на проект в Jenkins</a>
 
 #### Для запуска автотестов в Jenkins
 
@@ -53,40 +53,35 @@
 2. Выбрать пункт `Build with Parameters`
 3. Выбрать окружение в выпадающем списке ENVIRONMENT
 4. Указать комментарий в поле COMMENT
-7. Нажать кнопку `Build`
-8. Результат запуска сборки можно посмотреть в отчёте Allure
+5. Нажать кнопку `Build`
+6. Результат запуска сборки можно посмотреть в отчёте Allure
 
-<img alt="This is an image" src="images/Allure_fatsecret.png" width="900"/>
+<img alt="This is an image" src="images/jenkins.png" width="900"/>
 
 ----
 
 ### Allure-отчет
 
-#### Общие результаты
+![This is an image](images/allure_report.png)
 
-![This is an image](images/allure_owerview.png)
-
-#### Список тест-кейсов
-
-![This is an image](images/Allure_test_cases.png)
 
 ----
 
 ### Allure TestOps
 
-#### Общий список всех кейсов, имеющихся в системе
+#### Общий список тест-кейсов
 
 ![This is an image](images/testops_test_cases.png)
 
 #### Пример dashboard с результатами тестирования
 
-![This is an image](images/testops_dash.png)
+![This is an image](images/testops_dashboard.png)
 
 ----
 
 ### Интеграция с Jira
 
-![This is an image](images/jira.png)
+![This is an image](images/jira_integration.png)
 
 ----
 
@@ -96,4 +91,4 @@
 
 ### Пример видео прохождения автотеста
 
-![autotest_gif](images/autotestgif.gif)
+![autotest_gif](images/mobile_test_video.gif)
