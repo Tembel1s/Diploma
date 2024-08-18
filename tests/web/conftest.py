@@ -43,8 +43,7 @@ def setup_browser(request):
         options.capabilities.update(selenoid_capabilities)
         driver = webdriver.Remote(
             command_executor=f"https://{selenoid_login}:{selenoid_pass}@{selenoid_url}/wd/hub",
-            options=options,
-        )
+            options=options)
 
         browser.config.driver = driver
 
@@ -52,6 +51,7 @@ def setup_browser(request):
 
         if "accept_alert" in request.keywords:
             browser.driver.switch_to.alert.accept()
+
         attach.add_screenshot()
         attach.add_video_web()
         attach.add_logs()
