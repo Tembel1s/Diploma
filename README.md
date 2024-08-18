@@ -93,7 +93,7 @@
 
 ### Пример видео прохождения автотеста (Web)
 
-![autotest_gif](images/mobile_test_video.gif)
+![autotest_gif](images/web_test_video.gif)
 
 ### Пример видео прохождения автотеста (Mobile)
 
