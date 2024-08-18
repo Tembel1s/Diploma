@@ -1,14 +1,15 @@
-import requests
-from jsonschema import validate
-from schemas.schemas import upload_photo, frequent_foods
 import os
-from dotenv import load_dotenv
+
 import allure
-from data.products import product_1
+import requests
 from allure_commons.types import Severity
+from dotenv import load_dotenv
+from jsonschema import validate
+
+from data.products import product_1
+from schemas.schemas import frequent_foods
 from utils.helpers import (
     response_logging,
-    response_attaching_html,
     response_attaching_json,
 )
 

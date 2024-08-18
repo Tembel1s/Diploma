@@ -242,7 +242,7 @@ class Pages:
 
     def check_activity_level_choosing_page(self):
         with allure.step(
-            'Check the user was directed to "What is your activity level?" page'
+                'Check the user was directed to "What is your activity level?" page'
         ):
             browser.element(
                 (AppiumBy.ID, "com.fatsecret.android:id/title_text")
@@ -265,7 +265,7 @@ class Pages:
 
     def check_fill_current_weight_page(self):
         with allure.step(
-            'Check the user was directed to "What is your current weight?" page'
+                'Check the user was directed to "What is your current weight?" page'
         ):
             browser.element(
                 (AppiumBy.ID, "com.fatsecret.android:id/title_text")
@@ -312,7 +312,7 @@ class Pages:
 
     def check_fill_current_height_page(self):
         with allure.step(
-            'Check the user was directed to "What is your current height?" page'
+                'Check the user was directed to "What is your current height?" page'
         ):
             browser.element(
                 (AppiumBy.ID, "com.fatsecret.android:id/title_text")
@@ -359,7 +359,7 @@ class Pages:
 
     def check_fill_date_of_birth_page(self):
         with allure.step(
-            'Check the user was directed to "What is your date of birth?" page'
+                'Check the user was directed to "What is your date of birth?" page'
         ):
             browser.element(
                 (AppiumBy.ID, "com.fatsecret.android:id/title_text")
@@ -428,7 +428,7 @@ class Pages:
 
     def check_create_account_skip_confirmation(self):
         with allure.step(
-            'Check the confirmation text "Are you sure you want to skip?" is appeared'
+                'Check the confirmation text "Are you sure you want to skip?" is appeared'
         ):
             browser.element(
                 (AppiumBy.ID, "com.fatsecret.android:id/create_account_skip_title_text")

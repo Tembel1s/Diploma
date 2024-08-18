@@ -1,6 +1,6 @@
+import allure
 from selene import browser
 from selene import have, be
-import allure
 
 
 class HomePage:
