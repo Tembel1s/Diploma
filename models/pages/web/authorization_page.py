@@ -1,10 +1,11 @@
+import os
+
+import allure
+from dotenv import load_dotenv
 from selene import browser
 from selene import have, be
-import os
-from dotenv import load_dotenv
-import allure
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 load_dotenv()
 
