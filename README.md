@@ -93,9 +93,10 @@
 
 ### Пример видео прохождения автотеста (Web)
 
-![autotest_gif](images/web_test_video.gif)
+<img src="images/web_test_video.gif" alt="autotest_gif" style="width: 100%; height: auto;" />
 
 ### Пример видео прохождения автотеста (Mobile)
 
 ![autotest_gif](images/mobile_test_video.gif)
 
+>
