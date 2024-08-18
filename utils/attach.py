@@ -32,16 +32,15 @@ def add_video(session_id):
 
 def add_video_web():
     selenoid_url = os.getenv("SELENOID_URL")
-    video_url = f"https://{selenoid_url}video/{browser.driver.session_id}.mp4"
+    video_url = f"https://{selenoid_url}/video/{browser.driver.session_id}.mp4"
     html = (
         f"<html><body>"
         f"<video width='100%' height='100%' controls autoplay>"
         f"<source src='{video_url}' type='video/mp4'>"
         f"</video></body></html>"
     )
-    allure.attach(
-        html, "video_url" + browser.driver.session_id, AttachmentType.HTML, ".html"
-    )
+    allure.attach(html, "video_url" + browser.driver.session_id, AttachmentType.HTML, '.html')
+
 
 def add_logs():
     log = "".join(f"{text}\n" for text in browser.driver.get_log(log_type="browser"))

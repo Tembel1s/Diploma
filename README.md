@@ -91,7 +91,11 @@
 
 <img alt="This is an image" height="250" src="images/tg_notifications.png"/>
 
-### Пример видео прохождения автотеста
+
+### Пример видео прохождения автотеста (Web)
+
+![autotest_gif](images/web_test_video.gif)
+
+### Пример видео прохождения автотеста (Mobile)
 
 ![autotest_gif](images/mobile_test_video.gif)
-
