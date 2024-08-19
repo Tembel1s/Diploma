@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 
 
 def relative_path(path: str):

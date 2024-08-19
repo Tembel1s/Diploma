@@ -2,15 +2,14 @@ import os
 import shutil
 
 import pytest
+import requests
 from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import requests
 
 from fatsecret_tests_project.pages.web.user_actions_page import AddFood, DeleteFood
 from fatsecret_tests_project.utils import attach
-
 
 load_dotenv()
 

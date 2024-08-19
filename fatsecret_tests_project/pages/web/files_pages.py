@@ -10,7 +10,6 @@ from selene import browser
 from fatsecret_tests_project.data.products import product_1, product_2
 
 
-
 def create_content_folder():
     os.makedirs("content_folder", exist_ok=True)
 

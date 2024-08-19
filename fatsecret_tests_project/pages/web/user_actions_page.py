@@ -1,7 +1,8 @@
+import time
+
 import allure
 from selene import browser, query
 from selene import have, be
-import time
 
 
 class FoodSearch:

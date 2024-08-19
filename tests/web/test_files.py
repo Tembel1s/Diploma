@@ -1,12 +1,14 @@
+import time
+
 import allure
 import pytest
 from allure_commons.types import Severity
-import time
 
 from fatsecret_tests_project.data.products import product_1, product_2
 from fatsecret_tests_project.pages.web.files_pages import export_file
 from fatsecret_tests_project.pages.web.user_actions_page import add_food
 from tests.web.conftest import authorization
+
 
 def fill_cart():
     add_food.go_to_food_diary()
