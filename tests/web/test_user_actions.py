@@ -127,6 +127,7 @@ def test_calories_count():
     add_food.go_to_food_diary()
     time.sleep(2)
     add_food.click_add_item()
+    time.sleep(2)
     add_food.choose_product(product_1)
     time.sleep(2)
 
