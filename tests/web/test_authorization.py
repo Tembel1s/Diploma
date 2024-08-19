@@ -1,5 +1,4 @@
 import os
-import time
 
 import allure
 import pytest
@@ -22,18 +21,12 @@ valid_password = os.getenv("FATSECRET_PASSWORD")
 @allure.severity(Severity.BLOCKER)
 def test_authorization():
     authorization_page.open()
-    time.sleep(2)
 
     authorization_page.click_sign_in_button()
-    time.sleep(2)
     authorization_page.fill_login(valid_login)
-    time.sleep(2)
     authorization_page.fill_password(valid_password)
-    time.sleep(2)
     authorization_page.submit_credentials()
-    time.sleep(2)
     authorization_page.check_successful_authorization()
-    time.sleep(2)
 
 
 @pytest.mark.accept_alert
@@ -45,18 +38,12 @@ def test_authorization():
 @allure.severity(Severity.CRITICAL)
 def test_authorization_invalid_password():
     authorization_page.open()
-    time.sleep(2)
 
     authorization_page.click_sign_in_button()
-    time.sleep(2)
     authorization_page.fill_login(valid_login)
-    time.sleep(2)
     authorization_page.fill_password("invalid password")
-    time.sleep(2)
     authorization_page.submit_credentials()
-    time.sleep(2)
     authorization_page.check_unsuccessful_authorization()
-    time.sleep(2)
 
 
 @pytest.mark.accept_alert
@@ -68,15 +55,9 @@ def test_authorization_invalid_password():
 @allure.severity(Severity.CRITICAL)
 def test_authorization_wrong_login():
     authorization_page.open()
-    time.sleep(2)
 
     authorization_page.click_sign_in_button()
-    time.sleep(2)
     authorization_page.fill_login("invalid login")
-    time.sleep(2)
     authorization_page.fill_password(valid_password)
-    time.sleep(2)
     authorization_page.submit_credentials()
-    time.sleep(2)
     authorization_page.check_unsuccessful_authorization()
-    time.sleep(2)

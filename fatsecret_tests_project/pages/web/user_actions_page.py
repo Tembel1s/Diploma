@@ -1,7 +1,6 @@
 import allure
 from selene import browser, query
 from selene import have, be
-import time
 
 
 class FoodSearch:
@@ -98,11 +97,10 @@ class DeleteFood:
     @allure.step("Clear Diary")
     def clear_diary(self):
         while browser.all("[title='delete this item']").matching(
-                have.size_greater_than(0)
+            have.size_greater_than(0)
         ):
             browser.element("[title='delete this item']").should(be.present).click()
             browser.switch_to.alert.accept()
-            time.sleep(5)
 
 
 delete_food = DeleteFood()

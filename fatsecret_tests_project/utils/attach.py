@@ -30,6 +30,7 @@ def add_video(session_id):
         attachment_type=allure.attachment_type.HTML,
     )
 
+
 def add_video_web():
     selenoid_url = os.getenv("SELENOID_URL")
     video_url = f"https://{selenoid_url}/video/{browser.driver.session_id}.mp4"
@@ -45,4 +46,3 @@ def add_video_web():
 def add_logs():
     log = "".join(f"{text}\n" for text in browser.driver.get_log(log_type="browser"))
     allure.attach(log, "browser_logs", AttachmentType.TEXT, ".log")
-
