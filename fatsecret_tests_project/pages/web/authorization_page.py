@@ -49,3 +49,5 @@ class AuthorizationPage:
     @allure.step("Accept alert")
     def accept_alert(self):
         browser.driver.switch_to.alert.accept()
+
+authorization_page = AuthorizationPage()

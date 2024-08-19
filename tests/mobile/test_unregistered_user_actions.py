@@ -2,7 +2,7 @@ import allure
 from allure_commons.types import Severity
 from appium.webdriver.common.appiumby import AppiumBy
 
-from fatsecret_tests_project.pages.mobile.mobile_page import Pages, UserFlow
+from fatsecret_tests_project.pages.mobile.mobile_page import pages, user_flow
 
 
 @allure.tag("Mobile")
@@ -11,8 +11,6 @@ from fatsecret_tests_project.pages.mobile.mobile_page import Pages, UserFlow
 @allure.title("Captcha")
 @allure.severity(Severity.CRITICAL)
 def test_capcha():
-    user_flow = UserFlow()
-
     with allure.step("Check user is on the welcome page"):
         user_flow.check_if_user_directed_to_page(
             (
@@ -64,8 +62,6 @@ def test_capcha():
 @allure.title("Guest login")
 @allure.severity(Severity.CRITICAL)
 def test_guest_login():
-    pages = Pages()
-
     (
         pages.check_main_page()
         .check_data_collect_agreement_page()
@@ -90,9 +86,6 @@ def test_guest_login():
 @allure.title("Goal setting")
 @allure.severity(Severity.NORMAL)
 def test_goal_setting_interface():
-    pages = Pages()
-    user_flow = UserFlow()
-
     pages.go_to_goal_setting_page()
 
     with allure.step('Set "Weight loss" goal'):

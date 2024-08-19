@@ -1,11 +1,13 @@
 import csv
+import os
+
+import allure
+import requests
+from pypdf import PdfReader
 from selene import be, query
 from selene.support.shared import browser
-from pypdf import PdfReader
-import allure
+
 from fatsecret_tests_project.data.products import product_1, product_2
-import requests
-import os
 
 os.makedirs("content_folder", exist_ok=True)
 CONTENT_DIR = os.path.abspath("content_folder")
@@ -87,3 +89,6 @@ class ExportFile:
             for row in csvreader:
                 if any(product_1.name in cell for cell in row):
                     assert any(product_1.calories_quantity in cell for cell in row)
+
+
+export_file = ExportFile()

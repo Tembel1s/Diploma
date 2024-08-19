@@ -3,9 +3,10 @@ import pytest
 from allure_commons.types import Severity
 
 from fatsecret_tests_project.data.products import product_1, product_2
-from fatsecret_tests_project.pages.web.files_pages import ExportFile
-from fatsecret_tests_project.pages.web.user_actions_page import AddFood
+from fatsecret_tests_project.pages.web.files_pages import export_file
+from fatsecret_tests_project.pages.web.user_actions_page import add_food
 from tests.web.test_user_actions import authorization
+
 
 @pytest.mark.delete_content_folder
 @allure.tag("UI")
@@ -15,9 +16,6 @@ from tests.web.test_user_actions import authorization
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
 def test_export_pdf():
-    add_food = AddFood()
-    export_file = ExportFile()
-
     authorization()
     add_food.go_to_food_diary()
     add_food.click_add_item()
@@ -33,6 +31,7 @@ def test_export_pdf():
     export_file.download_pdf()
     export_file.check_pdf_file_has_products_info(product_1, product_2)
 
+
 @pytest.mark.delete_content_folder
 @allure.tag("UI")
 @allure.feature("UI tests")
@@ -41,9 +40,6 @@ def test_export_pdf():
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
 def test_export_csv():
-    add_food = AddFood()
-    export_file = ExportFile()
-
     authorization()
     add_food.go_to_food_diary()
     add_food.click_add_item()

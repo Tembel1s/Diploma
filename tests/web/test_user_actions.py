@@ -7,13 +7,11 @@ from dotenv import load_dotenv
 from selene.support.shared import browser
 
 from fatsecret_tests_project.data.products import product_1, product_2
-from fatsecret_tests_project.pages.web.home_page import HomePage
-from fatsecret_tests_project.pages.web.user_actions_page import (
-    FoodSearch,
-    AddFood,
-    DeleteFood,
-    CaloriesCount,
-)
+from fatsecret_tests_project.pages.web.home_page import home_page
+from fatsecret_tests_project.pages.web.user_actions_page import (add_food,
+                                                                 food_search,
+                                                                 delete_food, calories_count
+                                                                 )
 
 load_dotenv()
 
@@ -58,8 +56,6 @@ def authorization():
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
 def test_main_page():
-    home_page = HomePage()
-
     authorization()
 
     home_page.check_my_fatsecret_tab()
@@ -77,8 +73,6 @@ def test_main_page():
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
 def test_food_search():
-    food_search = FoodSearch()
-
     authorization()
 
     food_search.search_product(product_1.name)
@@ -92,8 +86,6 @@ def test_food_search():
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.CRITICAL)
 def test_add_food_to_diary():
-    add_food = AddFood()
-
     authorization()
     add_food.go_to_food_diary()
 
@@ -114,9 +106,6 @@ def test_add_food_to_diary():
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.CRITICAL)
 def test_delete_food_from_diary():
-    add_food = AddFood()
-    delete_food = DeleteFood()
-
     authorization()
     add_food.go_to_food_diary()
     add_food.click_add_item()
@@ -138,9 +127,6 @@ def test_delete_food_from_diary():
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.CRITICAL)
 def test_calories_count():
-    add_food = AddFood()
-    calories_count = CaloriesCount()
-
     authorization()
 
     add_food.go_to_food_diary()

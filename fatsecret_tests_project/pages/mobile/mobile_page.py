@@ -31,6 +31,9 @@ class UserFlow:
         browser.element(input_row).should(be.clickable).click().send_keys(value)
 
 
+user_flow = UserFlow()
+
+
 class Pages:
     def check_main_page(self):
         with allure.step('Check and click "I am a new user" button'):
@@ -472,3 +475,5 @@ class Pages:
         browser.element(
             (AppiumBy.ID, "com.fatsecret.android:id/floating_action_next_button")
         ).should(be.clickable).click()
+
+pages = Pages()

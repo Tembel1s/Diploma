@@ -1,5 +1,3 @@
-import time
-
 import allure
 from selene import browser, query
 from selene import have, be
@@ -33,6 +31,9 @@ class FoodSearch:
             have.text("Related searches for: ")
         ).should(have.text(product))
         browser.element(".searchRelated").all("a").should(have.size_greater_than(0))
+
+
+food_search = FoodSearch()
 
 
 class AddFood:
@@ -76,6 +77,9 @@ class AddFood:
             ).should(be.visible)
 
 
+add_food = AddFood()
+
+
 class DeleteFood:
     @allure.step("Click Delete button")
     def click_delete_button(self, product):
@@ -98,6 +102,9 @@ class DeleteFood:
             browser.element("[title='delete this item']").should(be.present).click()
             browser.switch_to.alert.accept()
             # time.sleep(5)
+
+
+delete_food = DeleteFood()
 
 
 class CaloriesCount:
@@ -129,3 +136,6 @@ class CaloriesCount:
         browser.all(".subheading").element_by(have.text(f"{quantity} kcal")).should(
             be.present
         )
+
+
+calories_count = CaloriesCount()

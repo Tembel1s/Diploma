@@ -63,3 +63,6 @@ class HomePage:
         browser.element('[title="Community"]').should(
             have.attribute("href", "https://www.fatsecret.com/Community.aspx?pa=fms")
         )
+
+
+home_page = HomePage()
