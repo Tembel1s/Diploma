@@ -33,7 +33,7 @@ def to_driver_options(context):
         options.set_capability(
             "bstack:options",
             {
-                "projectName": "Wikipedia project",
+                "projectName": "FatSecret project",
                 "buildName": "browserstack-build-1",
                 "sessionName": "BStack test",
                 "userName": os.getenv("USER_NAME"),
