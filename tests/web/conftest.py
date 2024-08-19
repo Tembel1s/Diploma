@@ -1,4 +1,5 @@
 import os
+import shutil
 
 import pytest
 from dotenv import load_dotenv
@@ -63,4 +64,7 @@ def setup_browser(request):
             add_food.go_to_food_diary()
             delete_food.clear_diary()
 
-        browser.quit()
+        if "delete_content_folder" in request.keywords:
+            shutil.rmtree('content_folder')
+
+

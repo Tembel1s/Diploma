@@ -1,4 +1,5 @@
 import allure
+import pytest
 from allure_commons.types import Severity
 
 from fatsecret_tests_project.data.products import product_1, product_2
@@ -6,7 +7,7 @@ from fatsecret_tests_project.pages.web.files_pages import ExportFile
 from fatsecret_tests_project.pages.web.user_actions_page import AddFood
 from tests.web.test_user_actions import authorization
 
-
+@pytest.mark.delete_content_folder
 @allure.tag("UI")
 @allure.feature("UI tests")
 @allure.story("Export files")
@@ -32,7 +33,7 @@ def test_export_pdf():
     export_file.download_pdf()
     export_file.check_pdf_file_has_products_info(product_1, product_2)
 
-
+@pytest.mark.delete_content_folder
 @allure.tag("UI")
 @allure.feature("UI tests")
 @allure.story("Export files")
