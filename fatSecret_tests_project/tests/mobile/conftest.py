@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from selene import browser
 
 import config
-from utils import attach
+from fatSecret_tests_project.utils import attach
 
 
 def pytest_addoption(parser):

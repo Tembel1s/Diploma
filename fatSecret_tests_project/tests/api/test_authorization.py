@@ -5,7 +5,7 @@ import requests
 from allure_commons.types import Severity
 from dotenv import load_dotenv
 
-from utils.helpers import response_attaching_html, response_logging
+from fatSecret_tests_project.utils.helpers import response_attaching_html, response_logging
 
 load_dotenv()
 

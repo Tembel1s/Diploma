@@ -3,7 +3,7 @@ from selene import be, query
 from selene.support.shared import browser
 from pypdf import PdfReader
 import allure
-from data.products import product_1, product_2
+from fatSecret_tests_project.data.products import product_1, product_2
 import requests
 import os
 

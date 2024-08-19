@@ -2,7 +2,7 @@
 
 > <a target="_blank" href="https://fatsecret.com/">Ссылка на сайт</a>
 
-![This is an image](images/main_page.png)
+![This is an image](fatSecret_tests_project/images/main_page.png)
 
 #### Список реализованных проверок:
 
@@ -40,7 +40,7 @@
 ## Технологии и инструменты
 
 <p  align="center">
-<img src="images/logos/python-original.svg" width="50" title="Python"> <img src="images/logos/pytest.png" width="50" title="Pytest"> <img src="images/logos/intellij_pycharm.png" width="50" title="PyCharm"> <img src="images/logos/selene.png" width="50" title="Selene"> <img src="images/logos/selenium.png" width="50" title="Selenium"> <img src="images/logos/selenoid.png" width="50" title="Selenoid"> <img src="images/logos/jenkins.png" width="50" title="Jenkins"> <img src="images/logos/allure_report.png" width="50" title="Allure Report"> <img src="images/logos/allure_testops.png" width="50" title="Allure TestOps"> <img src="images/logos/tg.png" width="50" title="Telegram"> <img src="images/logos/jira.png" width="50" title="Jira"> <img src="images/logos/github.png" width="50" title="GitHub">
+<img src="images/logos/python-original.svg" width="50" title="Python"> <img src="fatSecret_tests_project/images/logos/pytest.png" width="50" title="Pytest"> <img src="images/logos/intellij_pycharm.png" width="50" title="PyCharm"> <img src="images/logos/selene.png" width="50" title="Selene"> <img src="images/logos/selenium.png" width="50" title="Selenium"> <img src="images/logos/selenoid.png" width="50" title="Selenoid"> <img src="images/logos/jenkins.png" width="50" title="Jenkins"> <img src="images/logos/allure_report.png" width="50" title="Allure Report"> <img src="images/logos/allure_testops.png" width="50" title="Allure TestOps"> <img src="images/logos/tg.png" width="50" title="Telegram"> <img src="images/logos/jira.png" width="50" title="Jira"> <img src="images/logos/github.png" width="50" title="GitHub">
 </p>
 
 ----
@@ -58,13 +58,13 @@
 5. Нажать кнопку `Build`
 6. Результат запуска сборки можно посмотреть в отчёте Allure
 
-<img alt="This is an image" src="images/jenkins.png" width="900"/>
+<img alt="This is an image" src="fatSecret_tests_project/images/jenkins.png" width="900"/>
 
 ----
 
 ### Allure-отчет
 
-![This is an image](images/allure_report.png)
+![This is an image](fatSecret_tests_project/images/allure_report.png)
 
 
 ----
@@ -73,30 +73,30 @@
 
 #### Общий список тест-кейсов
 
-![This is an image](images/testops_test_cases.png)
+![This is an image](fatSecret_tests_project/images/testops_test_cases.png)
 
 #### Пример Dashboard с результатами тестирования
 
-![This is an image](images/testops_dashboard.png)
+![This is an image](fatSecret_tests_project/images/testops_dashboard.png)
 
 ----
 
 ### Интеграция с Jira
 
-![This is an image](images/jira_integration.png)
+![This is an image](fatSecret_tests_project/images/jira_integration.png)
 
 ----
 
 ### Оповещение о результатах прохождения тестов в Telegram
 
-<img alt="This is an image" height="250" src="images/tg_notifications.png"/>
+<img alt="This is an image" height="250" src="fatSecret_tests_project/images/tg_notifications.png"/>
 
 ### Пример видео прохождения автотеста (Web)
 
-<img src="images/web_test_video.gif" alt="autotest_gif" style="width: 100%; height: auto;" />
+<img src="fatSecret_tests_project/images/web_test_video.gif" alt="autotest_gif" style="width: 100%; height: auto;" />
 
 ### Пример видео прохождения автотеста (Mobile)
 
-![autotest_gif](images/mobile_test_video.gif)
+![autotest_gif](fatSecret_tests_project/images/mobile_test_video.gif)
 
 >

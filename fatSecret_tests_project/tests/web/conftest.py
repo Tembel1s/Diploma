@@ -6,8 +6,8 @@ from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-from models.pages.web.user_actions_page import AddFood, DeleteFood
-from utils import attach
+from fatSecret_tests_project.pages.web.user_actions_page import AddFood, DeleteFood
+from fatSecret_tests_project.utils import attach
 
 
 @pytest.fixture(scope="session", autouse=True)

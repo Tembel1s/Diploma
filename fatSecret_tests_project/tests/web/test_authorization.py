@@ -5,7 +5,7 @@ import pytest
 from allure_commons.types import Severity
 from dotenv import load_dotenv
 
-from models.pages.web.authorization_page import AuthorizationPage
+from fatSecret_tests_project.pages.web.authorization_page import AuthorizationPage
 
 load_dotenv()
 
