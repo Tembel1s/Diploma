@@ -1,10 +1,10 @@
 import allure
 from allure_commons.types import Severity
 
-from fatSecret_tests_project.data.products import product_1, product_2
-from fatSecret_tests_project.pages.web.files_pages import ExportFile
-from fatSecret_tests_project.pages.web.user_actions_page import AddFood
-from fatSecret_tests_project.tests.web.test_user_actions import authorization
+from fatsecret_tests_project.data.products import product_1, product_2
+from fatsecret_tests_project.pages.web.files_pages import ExportFile
+from fatsecret_tests_project.pages.web.user_actions_page import AddFood
+from fatsecret_tests_project.tests.web.test_user_actions import authorization
 
 
 @allure.tag("UI")

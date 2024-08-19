@@ -2,7 +2,7 @@
 
 > <a target="_blank" href="https://fatsecret.com/">Ссылка на сайт</a>
 
-![This is an image](fatSecret_tests_project/images/main_page.png)
+![This is an image](fatsecret_tests_project/images/main_page.png)
 
 #### Список реализованных проверок:
 
@@ -40,7 +40,7 @@
 ## Технологии и инструменты
 
 <p  align="center">
-<img src="images/logos/python-original.svg" width="50" title="Python"> <img src="fatSecret_tests_project/images/logos/pytest.png" width="50" title="Pytest"> <img src="images/logos/intellij_pycharm.png" width="50" title="PyCharm"> <img src="images/logos/selene.png" width="50" title="Selene"> <img src="images/logos/selenium.png" width="50" title="Selenium"> <img src="images/logos/selenoid.png" width="50" title="Selenoid"> <img src="images/logos/jenkins.png" width="50" title="Jenkins"> <img src="images/logos/allure_report.png" width="50" title="Allure Report"> <img src="images/logos/allure_testops.png" width="50" title="Allure TestOps"> <img src="images/logos/tg.png" width="50" title="Telegram"> <img src="images/logos/jira.png" width="50" title="Jira"> <img src="images/logos/github.png" width="50" title="GitHub">
+<img src="fatsecret_tests_project/images/logos/python-original.svg" width="50" title="Python"> <img src="fatSecret_tests_project/images/logos/pytest.png" width="50" title="Pytest"> <img src="fatsecret_tests_project/images/logos/intellij_pycharm.png" width="50" title="PyCharm"> <img src="fatsecret_tests_project/images/logos/selene.png" width="50" title="Selene"> <img src="fatsecret_tests_project/images/logos/selenium.png" width="50" title="Selenium"> <img src="fatsecret_tests_project/images/logos/selenoid.png" width="50" title="Selenoid"> <img src="fatsecret_tests_project/images/logos/jenkins.png" width="50" title="Jenkins"> <img src="fatsecret_tests_project/images/logos/allure_report.png" width="50" title="Allure Report"> <img src="fatsecret_tests_project/images/logos/allure_testops.png" width="50" title="Allure TestOps"> <img src="fatsecret_tests_project/images/logos/tg.png" width="50" title="Telegram"> <img src="fatsecret_tests_project/images/logos/jira.png" width="50" title="Jira"> <img src="fatsecret_tests_project/images/logos/github.png" width="50" title="GitHub">
 </p>
 
 ----
@@ -64,7 +64,7 @@
 
 ### Allure-отчет
 
-![This is an image](fatSecret_tests_project/images/allure_report.png)
+![This is an image](fatsecret_tests_project/images/allure_report.png)
 
 
 ----
@@ -73,17 +73,17 @@
 
 #### Общий список тест-кейсов
 
-![This is an image](fatSecret_tests_project/images/testops_test_cases.png)
+![This is an image](fatsecret_tests_project/images/testops_test_cases.png)
 
 #### Пример Dashboard с результатами тестирования
 
-![This is an image](fatSecret_tests_project/images/testops_dashboard.png)
+![This is an image](fatsecret_tests_project/images/testops_dashboard.png)
 
 ----
 
 ### Интеграция с Jira
 
-![This is an image](fatSecret_tests_project/images/jira_integration.png)
+![This is an image](fatsecret_tests_project/images/jira_integration.png)
 
 ----
 
@@ -97,6 +97,6 @@
 
 ### Пример видео прохождения автотеста (Mobile)
 
-![autotest_gif](fatSecret_tests_project/images/mobile_test_video.gif)
+![autotest_gif](fatsecret_tests_project/images/mobile_test_video.gif)
 
 >

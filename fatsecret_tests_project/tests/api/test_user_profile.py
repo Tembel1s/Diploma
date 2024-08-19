@@ -6,8 +6,8 @@ from allure_commons.types import Severity
 from dotenv import load_dotenv
 from jsonschema import validate
 
-from fatSecret_tests_project.schemas.schemas import upload_photo
-from fatSecret_tests_project.utils.helpers import (
+from fatsecret_tests_project.schemas.schemas import upload_photo
+from fatsecret_tests_project.utils.helpers import (
     response_logging,
     response_attaching_html,
     response_attaching_json,

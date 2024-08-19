@@ -2,7 +2,7 @@ import allure
 from allure_commons.types import Severity
 from appium.webdriver.common.appiumby import AppiumBy
 
-from fatSecret_tests_project.pages.mobile.mobile_page import Pages, UserFlow
+from fatsecret_tests_project.pages.mobile.mobile_page import Pages, UserFlow
 
 
 @allure.tag("Mobile")

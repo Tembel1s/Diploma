@@ -6,9 +6,9 @@ from allure_commons.types import Severity
 from dotenv import load_dotenv
 from jsonschema import validate
 
-from fatSecret_tests_project.data.products import product_1
-from fatSecret_tests_project.schemas.schemas import frequent_foods
-from fatSecret_tests_project.utils.helpers import (
+from fatsecret_tests_project.data.products import product_1
+from fatsecret_tests_project.schemas.schemas import frequent_foods
+from fatsecret_tests_project.utils.helpers import (
     response_logging,
     response_attaching_json,
 )

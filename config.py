@@ -2,7 +2,7 @@ import os
 
 from appium.options.android import UiAutomator2Options
 
-from fatSecret_tests_project.utils import file_path
+from fatsecret_tests_project.utils import file_path
 
 
 def to_driver_options(context):

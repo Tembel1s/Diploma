@@ -6,9 +6,9 @@ from allure_commons.types import Severity
 from dotenv import load_dotenv
 from selene.support.shared import browser
 
-from fatSecret_tests_project.data.products import product_1, product_2
-from fatSecret_tests_project.pages.web.home_page import HomePage
-from fatSecret_tests_project.pages.web.user_actions_page import (
+from fatsecret_tests_project.data.products import product_1, product_2
+from fatsecret_tests_project.pages.web.home_page import HomePage
+from fatsecret_tests_project.pages.web.user_actions_page import (
     FoodSearch,
     AddFood,
     DeleteFood,
