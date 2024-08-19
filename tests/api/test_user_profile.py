@@ -9,11 +9,6 @@ from jsonschema import validate
 
 from fatsecret_tests_project.schemas.schemas import upload_photo
 from fatsecret_tests_project.utils.file_path import relative_path
-from fatsecret_tests_project.utils.helpers import (
-    response_logging,
-    response_attaching_html,
-    response_attaching_json,
-)
 
 load_dotenv()
 
@@ -42,17 +37,14 @@ base64_image = image_to_base64(file_path)
 @allure.title("View user profile")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
-def test_view_user_profile(url, get_cookies):
+def test_view_user_profile(url, get_cookies, api_request_html):
     auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = requests.get((f"{url}/member/{user_name}"), cookies=cookies)
-
-    response_attaching_html(response)
-    response_logging(response)
+    response = api_request_html(url, endpoint=f"/member/{user_name}", method="GET", cookies=cookies)
 
     with allure.step("Check Status Code = 200"):
         assert response.status_code == 200
@@ -70,22 +62,17 @@ def test_view_user_profile(url, get_cookies):
 @allure.title("Fill Bio")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
-def test_fill_bio(url, get_cookies):
+def test_fill_bio(url, get_cookies, api_request_html):
     auth_cookies_value = get_cookies
     text = "kak dela"
 
-    form_data = {"__EVENTTARGET": "ctl00$ctl11$ctl04", "ctl00$ctl11$Bio": f"{text}"}
+    data = {"__EVENTTARGET": "ctl00$ctl11$ctl04", "ctl00$ctl11$Bio": f"{text}"}
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = requests.post(
-        f"{url}/Default.aspx?pa=mbe", data=form_data, cookies=cookies
-    )
-
-    response_attaching_html(response)
-    response_logging(response)
+    response = api_request_html(url, endpoint="/Default.aspx?pa=mbe", method="POST", data=data, cookies=cookies)
 
     with allure.step("Check Status Code = 200"):
         assert response.status_code == 200
@@ -102,10 +89,10 @@ def test_fill_bio(url, get_cookies):
 @allure.title("Upload photo")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_upload_photo(url, get_cookies):
+def test_upload_photo(url, get_cookies, api_request_json):
     auth_cookies_value = get_cookies
 
-    payload = {
+    data = {
         "image": base64_image,
         "target": "300",
         "maxWidth": "650",
@@ -116,12 +103,7 @@ def test_upload_photo(url, get_cookies):
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = requests.post(
-        f"{url}/ajax/ImageUpload.aspx", data=payload, cookies=cookies
-    )
-
-    response_attaching_json(response)
-    response_logging(response)
+    response = api_request_json(url, endpoint="/ajax/ImageUpload.aspx", method="POST", data=data, cookies=cookies)
 
     body = response.json()
 

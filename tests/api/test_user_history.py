@@ -1,17 +1,12 @@
 import os
 
 import allure
-import requests
 from allure_commons.types import Severity
 from dotenv import load_dotenv
 from jsonschema import validate
 
 from fatsecret_tests_project.data.products import product_1
 from fatsecret_tests_project.schemas.schemas import frequent_foods
-from fatsecret_tests_project.utils.helpers import (
-    response_logging,
-    response_attaching_json,
-)
 
 load_dotenv()
 
@@ -20,27 +15,25 @@ password = os.getenv("FATSECRET_PASSWORD")
 user_id = os.getenv("FATSECRET_USER_ID")
 
 
-
 @allure.tag("API")
 @allure.feature("API tests")
 @allure.story("User history")
 @allure.title('"Recently Eaten" tab')
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_recently_eaten(url, get_cookies):
+def test_recently_eaten(url, get_cookies, api_request_json):
     auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = requests.get(
-        (f"{url}/ajax/JsonRecipeMulti.aspx?uid={user_id}&meal=1&mec=mor"),
-        cookies=cookies,
+    response = api_request_json(
+        url,
+        endpoint=f'/ajax/JsonRecipeMulti.aspx?uid={user_id}&meal=1&mec=mor',
+        method='POST',
+        cookies=cookies
     )
-
-    response_attaching_json(response)
-    response_logging(response)
 
     with allure.step("Check Status Code = 200"):
         assert response.status_code == 200
@@ -63,20 +56,19 @@ def test_recently_eaten(url, get_cookies):
 @allure.title('"Most Eaten" tab')
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_most_eaten(url, get_cookies):
+def test_most_eaten(url, get_cookies, api_request_json):
     auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = requests.get(
-        (f"{url}/ajax/JsonRecipeMulti.aspx?uid={user_id}&meal=1&mec=fav"),
-        cookies=cookies,
+    response = api_request_json(
+        url,
+        endpoint=f'/ajax/JsonRecipeMulti.aspx?uid={user_id}&meal=1&mec=fav',
+        method='POST',
+        cookies=cookies
     )
-
-    response_attaching_json(response)
-    response_logging(response)
 
     with allure.step("Check Status Code = 200"):
         assert response.status_code == 200
