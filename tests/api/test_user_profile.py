@@ -1,3 +1,4 @@
+import base64
 import os
 
 import allure
@@ -7,6 +8,7 @@ from dotenv import load_dotenv
 from jsonschema import validate
 
 from fatsecret_tests_project.schemas.schemas import upload_photo
+from fatsecret_tests_project.utils.file_path import relative_path
 from fatsecret_tests_project.utils.helpers import (
     response_logging,
     response_attaching_html,
@@ -19,6 +21,19 @@ valid_login = os.getenv("FATSECRET_LOGIN")
 valid_password = os.getenv("FATSECRET_PASSWORD")
 user_name = os.getenv("FATSECRET_USER_NAME")
 user_id = os.getenv("FATSECRET_USER_ID")
+
+file_path = relative_path('tests/api/images/image.jpg')
+
+
+def image_to_base64(image_path):
+    with open(file_path, "rb") as image_file:
+        image_data = image_file.read()
+
+        base64_encoded = base64.b64encode(image_data).decode("utf-8")
+        return base64_encoded
+
+
+base64_image = image_to_base64(file_path)
 
 
 @allure.tag("API")
@@ -88,22 +103,7 @@ def test_fill_bio(url, get_cookies):
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
 def test_upload_photo(url, get_cookies):
-    import base64
-
     auth_cookies_value = get_cookies
-
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-
-    file_path = os.path.join(current_dir, "images", "image.jpg")
-
-    def image_to_base64(image_path):
-        with open(file_path, "rb") as image_file:
-            image_data = image_file.read()
-
-            base64_encoded = base64.b64encode(image_data).decode("utf-8")
-            return base64_encoded
-
-    base64_image = image_to_base64(file_path)
 
     payload = {
         "image": base64_image,

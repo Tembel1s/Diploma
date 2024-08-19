@@ -15,6 +15,8 @@ user_name = os.getenv("FATSECRET_USER_NAME")
 user_id = os.getenv("FATSECRET_USER_ID")
 
 
+
+
 @allure.tag("API")
 @allure.feature("API tests")
 @allure.story("Authorization")

@@ -20,6 +20,7 @@ password = os.getenv("FATSECRET_PASSWORD")
 user_id = os.getenv("FATSECRET_USER_ID")
 
 
+
 @allure.tag("API")
 @allure.feature("API tests")
 @allure.story("User history")
