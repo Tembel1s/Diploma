@@ -20,31 +20,14 @@ password = os.getenv("FATSECRET_PASSWORD")
 user_id = os.getenv("FATSECRET_USER_ID")
 
 
-def get_cookies():
-    form_data = {
-        "__EVENTTARGET": "ctl00$ctl11$Logincontrol1$Login",
-        f"ctl00$ctl11$Logincontrol1$Name": {login},
-        f"ctl00$ctl11$Logincontrol1$Password": {password},
-    }
-
-    response = requests.post(
-        "https://www.fatsecret.com/Auth.aspx?pa=s",
-        data=form_data,
-        allow_redirects=False,
-    )
-    auth_cookie_value = response.cookies.get(".FSASPXAUTH")
-
-    return auth_cookie_value
-
-
 @allure.tag("API")
 @allure.feature("API tests")
 @allure.story("User history")
 @allure.title('"Recently Eaten" tab')
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_recently_eaten(url):
-    auth_cookies_value = get_cookies()
+def test_recently_eaten(url, get_cookies):
+    auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
@@ -79,8 +62,8 @@ def test_recently_eaten(url):
 @allure.title('"Most Eaten" tab')
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_most_eaten(url):
-    auth_cookies_value = get_cookies()
+def test_most_eaten(url, get_cookies):
+    auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",

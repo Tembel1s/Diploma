@@ -21,31 +21,14 @@ user_name = os.getenv("FATSECRET_USER_NAME")
 user_id = os.getenv("FATSECRET_USER_ID")
 
 
-def get_cookies():
-    form_data = {
-        "__EVENTTARGET": "ctl00$ctl11$Logincontrol1$Login",
-        f"ctl00$ctl11$Logincontrol1$Name": {valid_login},
-        f"ctl00$ctl11$Logincontrol1$Password": {valid_password},
-    }
-
-    response = requests.post(
-        "https://www.fatsecret.com/Auth.aspx?pa=s",
-        data=form_data,
-        allow_redirects=False,
-    )
-    auth_cookie_value = response.cookies.get(".FSASPXAUTH")
-
-    return auth_cookie_value
-
-
 @allure.tag("API")
 @allure.feature("API tests")
 @allure.story("User actions")
 @allure.title("View user profile")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
-def test_view_user_profile(url):
-    auth_cookies_value = get_cookies()
+def test_view_user_profile(url, get_cookies):
+    auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
@@ -72,8 +55,8 @@ def test_view_user_profile(url):
 @allure.title("Fill Bio")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
-def test_fill_bio(url):
-    auth_cookies_value = get_cookies()
+def test_fill_bio(url, get_cookies):
+    auth_cookies_value = get_cookies
     text = "kak dela"
 
     form_data = {"__EVENTTARGET": "ctl00$ctl11$ctl04", "ctl00$ctl11$Bio": f"{text}"}
@@ -104,10 +87,10 @@ def test_fill_bio(url):
 @allure.title("Upload photo")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_upload_photo(url):
+def test_upload_photo(url, get_cookies):
     import base64
 
-    auth_cookies_value = get_cookies()
+    auth_cookies_value = get_cookies
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
 
