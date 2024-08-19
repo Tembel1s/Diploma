@@ -58,7 +58,7 @@
 5. Нажать кнопку `Build`
 6. Результат запуска сборки можно посмотреть в отчёте Allure
 
-<img alt="This is an image" src="fatSecret_tests_project/images/jenkins.png" width="900"/>
+<img alt="This is an image" src="fatsecret_tests_project/images/jenkins.png" width="900"/>
 
 ----
 
@@ -89,11 +89,11 @@
 
 ### Оповещение о результатах прохождения тестов в Telegram
 
-<img alt="This is an image" height="250" src="fatSecret_tests_project/images/tg_notifications.png"/>
+<img alt="This is an image" height="250" src="fatsecret_tests_project/images/tg_notifications.png"/>
 
 ### Пример видео прохождения автотеста (Web)
 
-<img src="fatSecret_tests_project/images/web_test_video.gif" alt="autotest_gif" style="width: 100%; height: auto;" />
+<img src="fatsecret_tests_project/images/web_test_video.gif" alt="autotest_gif" style="width: 100%; height: auto;" />
 
 ### Пример видео прохождения автотеста (Mobile)
 
