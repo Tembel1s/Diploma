@@ -5,7 +5,7 @@ import allure
 import requests
 from pypdf import PdfReader
 from selene import be, query
-from selene.support.shared import browser
+from selene import browser
 
 from fatsecret_tests_project.data.products import product_1, product_2
 
