@@ -6,7 +6,7 @@ import time
 from fatsecret_tests_project.data.products import product_1, product_2
 from fatsecret_tests_project.pages.web.files_pages import export_file
 from fatsecret_tests_project.pages.web.user_actions_page import add_food
-from tests.web.test_user_actions import authorization
+from tests.web.conftest import authorization
 
 
 @pytest.mark.delete_content_folder

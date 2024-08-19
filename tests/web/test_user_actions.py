@@ -1,10 +1,7 @@
-import os
 import time
+
 import allure
-import requests
 from allure_commons.types import Severity
-from dotenv import load_dotenv
-from selene.support.shared import browser
 
 from fatsecret_tests_project.data.products import product_1, product_2
 from fatsecret_tests_project.pages.web.home_page import home_page
@@ -12,41 +9,7 @@ from fatsecret_tests_project.pages.web.user_actions_page import (add_food,
                                                                  food_search,
                                                                  delete_food, calories_count
                                                                  )
-
-load_dotenv()
-
-login = os.getenv("FATSECRET_LOGIN")
-password = os.getenv("FATSECRET_PASSWORD")
-
-
-def get_cookies():
-    form_data = {
-        "__EVENTTARGET": "ctl00$ctl11$Logincontrol1$Login",
-        f"ctl00$ctl11$Logincontrol1$Name": {login},
-        f"ctl00$ctl11$Logincontrol1$Password": {password},
-    }
-
-    headers = {"Content-Type": "application/x-www-form-urlencoded"}
-
-    response = requests.post(
-        "https://www.fatsecret.com/Auth.aspx?pa=s",
-        data=form_data,
-        headers=headers,
-        allow_redirects=False,
-    )
-    auth_cookie_value = response.cookies.get(".FSASPXAUTH")
-    auth_cookie = {
-        "name": ".FSASPXAUTH",
-        "value": auth_cookie_value,
-    }
-
-    return auth_cookie
-
-
-def authorization():
-    browser.open("/")
-    browser.driver.add_cookie(get_cookies())
-    browser.driver.refresh()
+from tests.web.conftest import authorization
 
 
 @allure.tag("UI")

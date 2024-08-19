@@ -6,14 +6,48 @@ from dotenv import load_dotenv
 from selene import browser
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+import requests
 
 from fatsecret_tests_project.pages.web.user_actions_page import AddFood, DeleteFood
 from fatsecret_tests_project.utils import attach
 
 
-@pytest.fixture(scope="session", autouse=True)
-def load_env():
-    load_dotenv()
+load_dotenv()
+
+login = os.getenv("FATSECRET_LOGIN")
+password = os.getenv("FATSECRET_PASSWORD")
+
+
+def get_cookies():
+    form_data = {
+        "__EVENTTARGET": "ctl00$ctl11$Logincontrol1$Login",
+        f"ctl00$ctl11$Logincontrol1$Name": {login},
+        f"ctl00$ctl11$Logincontrol1$Password": {password},
+    }
+
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+
+    response = requests.post(
+        "https://www.fatsecret.com/Auth.aspx?pa=s",
+        data=form_data,
+        headers=headers,
+        allow_redirects=False,
+    )
+    auth_cookie_value = response.cookies.get(".FSASPXAUTH")
+    auth_cookie = {
+        "name": ".FSASPXAUTH",
+        "value": auth_cookie_value,
+    }
+
+    return auth_cookie
+
+
+def authorization():
+    browser.open("/")
+    browser.driver.add_cookie(get_cookies())
+    browser.driver.refresh()
+
+
 
 
 @pytest.fixture(scope="function", autouse=True)
