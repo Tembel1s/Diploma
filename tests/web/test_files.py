@@ -8,18 +8,7 @@ from fatsecret_tests_project.pages.web.files_pages import export_file
 from fatsecret_tests_project.pages.web.user_actions_page import add_food
 from tests.web.conftest import authorization
 
-
-@pytest.mark.delete_content_folder
-@allure.tag("UI")
-@allure.feature("UI tests")
-@allure.story("Export files")
-@allure.title("Export PDF file")
-@allure.link("https://fatsecret.com/")
-@allure.severity(Severity.NORMAL)
-def test_export_pdf():
-    authorization()
-    time.sleep(2)
-
+def fill_cart():
     add_food.go_to_food_diary()
     time.sleep(2)
     add_food.click_add_item()
@@ -36,6 +25,19 @@ def test_export_pdf():
     time.sleep(2)
     add_food.add_selected()
     time.sleep(2)
+
+
+@pytest.mark.delete_content_folder
+@allure.tag("UI")
+@allure.feature("UI tests")
+@allure.story("Export files")
+@allure.title("Export PDF file")
+@allure.link("https://fatsecret.com/")
+@allure.severity(Severity.NORMAL)
+def test_export_pdf():
+    authorization()
+    time.sleep(2)
+    fill_cart()
 
     export_file.click_print()
     time.sleep(2)
@@ -57,23 +59,7 @@ def test_export_pdf():
 def test_export_csv():
     authorization()
     time.sleep(2)
-
-    add_food.go_to_food_diary()
-    time.sleep(2)
-    add_food.click_add_item()
-    time.sleep(2)
-    add_food.choose_product(product_1)
-    time.sleep(2)
-    add_food.check_quantity_of_chosen_product("1")
-    time.sleep(2)
-    add_food.clear_input()
-    time.sleep(2)
-    add_food.choose_product(product_2)
-    time.sleep(2)
-    add_food.check_quantity_of_chosen_product("2")
-    time.sleep(2)
-    add_food.add_selected()
-    time.sleep(2)
+    fill_cart()
 
     export_file.click_print()
     time.sleep(2)
