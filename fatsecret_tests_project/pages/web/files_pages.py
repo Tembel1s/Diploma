@@ -9,7 +9,11 @@ from selene.support.shared import browser
 
 from fatsecret_tests_project.data.products import product_1, product_2
 
-os.makedirs("content_folder", exist_ok=True)
+
+
+def create_content_folder():
+    os.makedirs("content_folder", exist_ok=True)
+
 CONTENT_DIR = os.path.abspath("content_folder")
 
 
@@ -31,6 +35,7 @@ class ExportFile:
         ).should(be.clickable)
 
     def download_pdf(self):
+        create_content_folder()
         download_url = (
             browser.element(".rec")
             .should(be.present)
@@ -45,6 +50,7 @@ class ExportFile:
             file.write(content)
 
     def download_csv(self):
+        create_content_folder()
         download_url = (
             browser.element(".rec")
             .should(be.present)
