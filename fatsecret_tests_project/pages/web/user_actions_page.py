@@ -88,6 +88,7 @@ class DeleteFood:
         browser.all("[title='edit']").element_by(have.text(product)).element(
             "../.."
         ).element("[title='delete this item']").should(be.present).click()
+        time.sleep(2)
         browser.switch_to.alert.accept()
         time.sleep(2)
 
@@ -104,6 +105,7 @@ class DeleteFood:
                 have.size_greater_than(0)
         ):
             browser.element("[title='delete this item']").should(be.present).click()
+            time.sleep(2)
             browser.switch_to.alert.accept()
             time.sleep(5)
 
