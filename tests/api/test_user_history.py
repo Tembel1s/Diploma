@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from jsonschema import validate
 
 from fatsecret_tests_project.data.products import product_1
-from fatsecret_tests_project.schemas.schemas import frequent_foods
+from schemas.schemas import frequent_foods
 
 load_dotenv()
 

@@ -6,7 +6,7 @@ from allure_commons.types import Severity
 from dotenv import load_dotenv
 from jsonschema import validate
 
-from fatsecret_tests_project.schemas.schemas import upload_photo
+from schemas.schemas import upload_photo
 from fatsecret_tests_project.utils.file_path import relative_path
 from fatsecret_tests_project.utils.helpers import image_to_base64
 
@@ -17,7 +17,7 @@ valid_password = os.getenv("FATSECRET_PASSWORD")
 user_name = os.getenv("FATSECRET_USER_NAME")
 user_id = os.getenv("FATSECRET_USER_ID")
 
-file_path = relative_path('fatsecret_tests_project/images/api_test_image.jpg')
+file_path = relative_path('images/api_test_image.jpg')
 base64_image = image_to_base64(file_path)
 
 
