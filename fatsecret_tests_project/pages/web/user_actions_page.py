@@ -89,12 +89,14 @@ class DeleteFood:
             "../.."
         ).element("[title='delete this item']").should(be.present).click()
         browser.switch_to.alert.accept()
+        time.sleep(2)
 
     @allure.step("Check deleted product in diary")
     def check_deleted_products_not_in_diary(self, product):
         browser.all("[title='edit']").element_by(have.text(product)).should(
             be.not_.present
         )
+        time.sleep(2)
 
     @allure.step("Clear Diary")
     def clear_diary(self):
