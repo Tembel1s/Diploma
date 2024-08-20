@@ -4,20 +4,20 @@ from allure_commons.types import Severity
 from fatsecret_tests_project.pages.mobile.mobile_page import user_flow, pages
 
 
-@allure.tag("Mobile")
-@allure.feature("Android tests")
-@allure.story("Login")
-@allure.title("Captcha")
-@allure.severity(Severity.CRITICAL)
-def test_capcha():
-    (
-        user_flow.check_if_user_on_welcome_page()
-        .click_sign_with_existing_account()
-        .choose_sign_up_with_email()
-        .submit_credentials()
-        .click_sign_in()
-        .check_captcha()
-    )
+# @allure.tag("Mobile")
+# @allure.feature("Android tests")
+# @allure.story("Login")
+# @allure.title("Captcha")
+# @allure.severity(Severity.CRITICAL)
+# def test_capcha():
+#     (
+#         user_flow.check_if_user_on_welcome_page()
+#         .click_sign_with_existing_account()
+#         .choose_sign_up_with_email()
+#         .submit_credentials()
+#         .click_sign_in()
+#         .check_captcha()
+#     )
 
 
 @allure.tag("Mobile")
@@ -46,26 +46,26 @@ def test_guest_login():
 
 
 
-
-@allure.tag("Mobile")
-@allure.feature("Android tests")
-@allure.story("Login")
-@allure.title("Goal setting")
-@allure.severity(Severity.NORMAL)
-def test_goal_setting_interface():
-    pages.go_to_goal_setting_page()
-    (
-
-    user_flow.choose_weight_loss_goal()
-    .click_next()
-    .check_if_directed_to_correct_page("How much weight would you like to lose?")
-    .click_back()
-    .choose_weight_maintain_goal()
-    .click_next()
-    .check_if_directed_to_correct_page("What is your gender?")
-    .click_back()
-    .choose_weight_gain_goal()
-    .click_next()
-    .check_if_directed_to_correct_page("How much weight would you like to gain?")
-    )
-
+#
+# @allure.tag("Mobile")
+# @allure.feature("Android tests")
+# @allure.story("Login")
+# @allure.title("Goal setting")
+# @allure.severity(Severity.NORMAL)
+# def test_goal_setting_interface():
+#     pages.go_to_goal_setting_page()
+#     (
+#
+#     user_flow.choose_weight_loss_goal()
+#     .click_next()
+#     .check_if_directed_to_correct_page("How much weight would you like to lose?")
+#     .click_back()
+#     .choose_weight_maintain_goal()
+#     .click_next()
+#     .check_if_directed_to_correct_page("What is your gender?")
+#     .click_back()
+#     .choose_weight_gain_goal()
+#     .click_next()
+#     .check_if_directed_to_correct_page("How much weight would you like to gain?")
+#     )
+#

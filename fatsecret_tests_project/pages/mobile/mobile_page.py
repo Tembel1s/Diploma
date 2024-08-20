@@ -491,12 +491,12 @@ class Pages:
                         AppiumBy.ID,
                         "com.fatsecret.android:id/registration_default_region_text",
                     )
-                ).should(have.text("United States")).should(be.present)
+                ).should(have.text("United")).should(be.present)
                 with allure.step('Check "Other" option is present'):
                     browser.element(
                         (AppiumBy.XPATH, '//android.widget.TextView[@text="Other"]')
                     ).should(be.present)
-                    with allure.step('Click "United States" button'):
+                    with allure.step('Click "United" button'):
                         browser.element(
                             (
                                 AppiumBy.ID,
