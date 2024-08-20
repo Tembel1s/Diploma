@@ -19,6 +19,7 @@ def test_capcha():
         .check_captcha()
     )
 
+
 @allure.tag("Mobile")
 @allure.feature("Android tests")
 @allure.story("Login")
@@ -40,71 +41,31 @@ def test_guest_login():
         .check_choose_region_page()
         .check_create_account_suggest_pop_up()
         .check_create_account_skip_confirmation()
+        .check_user_logged_in_as_guest()
     )
 
 
-#
-#
-# @allure.tag("Mobile")
-# @allure.feature("Android tests")
-# @allure.story("Login")
-# @allure.title("Goal setting")
-# @allure.severity(Severity.NORMAL)
-# def test_goal_setting_interface():
-#     pages.go_to_goal_setting_page()
-#
-#     with allure.step('Set "Weight loss" goal'):
-#         user_flow.choose_option(
-#             (AppiumBy.XPATH, '//android.widget.TextView[@text="Weight loss"]')
-#         )
-#         with allure.step('Click "Next"'):
-#             user_flow.click_next()
-#             with allure.step(
-#                     'Check user directed to "How much weight would you like to lose?" page'
-#             ):
-#                 user_flow.check_if_user_directed_to_page(
-#                     (AppiumBy.ID, "com.fatsecret.android:id/title_text"),
-#                     "How much weight would you like to lose?",
-#                 )
-#                 with allure.step('Click "Back"'):
-#                     user_flow.click_back()
-#                     with allure.step('Set "Maintain my current weight" goal'):
-#                         user_flow.choose_option(
-#                             (
-#                                 AppiumBy.XPATH,
-#                                 '//android.widget.TextView[@text="Maintain my current weight"]',
-#                             )
-#                         )
-#                         with allure.step('Click "Next"'):
-#                             user_flow.click_next()
-#                             with allure.step(
-#                                     'Check user directed to "What is your gender?" page'
-#                             ):
-#                                 user_flow.check_if_user_directed_to_page(
-#                                     (
-#                                         AppiumBy.ID,
-#                                         "com.fatsecret.android:id/title_text",
-#                                     ),
-#                                     page_text="What is your gender?",
-#                                 )
-#                                 with allure.step('Click "Back"'):
-#                                     user_flow.click_back()
-#                                     with allure.step('Set "Weight gain" goal'):
-#                                         user_flow.choose_option(
-#                                             (
-#                                                 AppiumBy.XPATH,
-#                                                 '//android.widget.TextView[@text="Weight gain"]',
-#                                             )
-#                                         )
-#                                         with allure.step('Click "Next"'):
-#                                             user_flow.click_next()
-#                                             with allure.step(
-#                                                     'Check user directed to "How much weight would you like to gain?" page'
-#                                             ):
-#                                                 user_flow.check_if_user_directed_to_page(
-#                                                     (
-#                                                         AppiumBy.ID,
-#                                                         "com.fatsecret.android:id/title_text",
-#                                                     ),
-#                                                     page_text="How much weight would you like to gain?",
-#                                                 )
+
+
+@allure.tag("Mobile")
+@allure.feature("Android tests")
+@allure.story("Login")
+@allure.title("Goal setting")
+@allure.severity(Severity.NORMAL)
+def test_goal_setting_interface():
+    pages.go_to_goal_setting_page()
+    (
+
+    user_flow.choose_weight_loss_goal()
+    .click_next()
+    .check_if_directed_to_correct_page("How much weight would you like to lose?")
+    .click_back()
+    .choose_weight_maintain_goal()
+    .click_next()
+    .check_if_directed_to_correct_page("What is your gender?")
+    .click_back()
+    .choose_weight_gain_goal()
+    .click_next()
+    .check_if_directed_to_correct_page("How much weight would you like to gain?")
+    )
+

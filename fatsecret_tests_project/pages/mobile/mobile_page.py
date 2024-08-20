@@ -5,18 +5,19 @@ from selene import browser, have, be
 
 class UserFlow:
 
-    def click(self, button):
-        browser.element(button).should(be.clickable).click()
-
+    @allure.step('Click "Next"')
     def click_next(self):
         browser.element(
             (AppiumBy.ID, "com.fatsecret.android:id/floating_action_next_button")
         ).should(be.clickable).click()
+        return self
 
+    @allure.step('Click "Back"')
     def click_back(self):
         browser.element((AppiumBy.XPATH, "//android.widget.ImageButton")).should(
             be.clickable
         ).click()
+        return self
 
     @allure.step("Check user is on the welcome page")
     def check_if_user_on_welcome_page(self):
@@ -27,9 +28,6 @@ class UserFlow:
             )
         ).should(have.text("I am a new user"))
         return self
-
-    def check_if_user_directed_to_page(self, element, page_text):
-        browser.element(element).should(have.text(page_text))
 
     @allure.step('Click "I already have an account" button')
     def click_sign_with_existing_account(self):
@@ -79,9 +77,6 @@ class UserFlow:
         ).should(be.clickable).click()
         return self
 
-    def choose_option(self, element):
-        browser.element(element).should(be.clickable).click()
-
     @allure.step("Check captcha is appeared")
     def check_captcha(self):
         browser.element(
@@ -94,6 +89,40 @@ class UserFlow:
 
     def send_keys(self, input_row, value):
         browser.element(input_row).should(be.clickable).click().send_keys(value)
+
+    @allure.step('Set "Weight loss" goal')
+    def choose_weight_loss_goal(self):
+        browser.element(
+            (AppiumBy.XPATH, '//android.widget.TextView[@text="Weight loss"]')
+        ).should(be.clickable).click()
+        return self
+
+    @allure.step("Check user directed to correct page")
+    def check_if_directed_to_correct_page(self, text):
+        browser.element(
+            (
+                AppiumBy.ID,
+                "com.fatsecret.android:id/title_text",
+            )
+        ).should(have.text(text))
+        return self
+
+    @allure.step('Set "Maintain my current weight" goal')
+    def choose_weight_maintain_goal(self):
+        browser.element(
+            (
+                AppiumBy.XPATH,
+                '//android.widget.TextView[@text="Maintain my current weight"]',
+            )
+        ).should(be.clickable).click()
+        return self
+
+    @allure.step('Set "Weight gain" goal')
+    def choose_weight_gain_goal(self):
+        browser.element(
+            (AppiumBy.XPATH, '//android.widget.TextView[@text="Weight gain"]')
+        ).should(be.clickable).click()
+        return self
 
 
 user_flow = UserFlow()
@@ -516,6 +545,7 @@ class Pages:
                 be.present
             )
 
+    @allure.step("Go to Goal Setting Page")
     def go_to_goal_setting_page(self):
         browser.element(
             (AppiumBy.ID, "com.fatsecret.android:id/registration_lets_begin_text_solid")
@@ -540,6 +570,7 @@ class Pages:
         browser.element(
             (AppiumBy.ID, "com.fatsecret.android:id/floating_action_next_button")
         ).should(be.clickable).click()
+        return self
 
 
 pages = Pages()
