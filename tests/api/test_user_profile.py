@@ -37,14 +37,14 @@ base64_image = image_to_base64(file_path)
 @allure.title("View user profile")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
-def test_view_user_profile(url, get_cookies, api_request_html):
+def test_view_user_profile(url, get_cookies, api_request):
     auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = api_request_html(url, endpoint=f"/member/{user_name}", method="GET", cookies=cookies)
+    response = api_request(url, endpoint=f"/member/{user_name}", method="GET", cookies=cookies)
 
     with allure.step("Check Status Code = 200"):
         assert response.status_code == 200
@@ -62,7 +62,7 @@ def test_view_user_profile(url, get_cookies, api_request_html):
 @allure.title("Fill Bio")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
-def test_fill_bio(url, get_cookies, api_request_html):
+def test_fill_bio(url, get_cookies, api_request):
     auth_cookies_value = get_cookies
     text = "kak dela"
 
@@ -72,7 +72,7 @@ def test_fill_bio(url, get_cookies, api_request_html):
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = api_request_html(url, endpoint="/Default.aspx?pa=mbe", method="POST", data=data, cookies=cookies)
+    response = api_request(url, endpoint="/Default.aspx?pa=mbe", method="POST", data=data, cookies=cookies)
 
     with allure.step("Check Status Code = 200"):
         assert response.status_code == 200
@@ -89,7 +89,7 @@ def test_fill_bio(url, get_cookies, api_request_html):
 @allure.title("Upload photo")
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_upload_photo(url, get_cookies, api_request_json):
+def test_upload_photo(url, get_cookies, api_request):
     auth_cookies_value = get_cookies
 
     data = {
@@ -103,7 +103,7 @@ def test_upload_photo(url, get_cookies, api_request_json):
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = api_request_json(url, endpoint="/ajax/ImageUpload.aspx", method="POST", data=data, cookies=cookies)
+    response = api_request(url, endpoint="/ajax/ImageUpload.aspx", method="POST", data=data, cookies=cookies)
 
     body = response.json()
 
