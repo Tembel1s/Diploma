@@ -1,4 +1,3 @@
-import base64
 import os
 
 import allure
@@ -9,6 +8,7 @@ from jsonschema import validate
 
 from fatsecret_tests_project.schemas.schemas import upload_photo
 from fatsecret_tests_project.utils.file_path import relative_path
+from fatsecret_tests_project.utils.helpers import image_to_base64
 
 load_dotenv()
 
@@ -18,16 +18,6 @@ user_name = os.getenv("FATSECRET_USER_NAME")
 user_id = os.getenv("FATSECRET_USER_ID")
 
 file_path = relative_path('fatsecret_tests_project/images/api_test_image.jpg')
-
-
-def image_to_base64(image_path):
-    with open(file_path, "rb") as image_file:
-        image_data = image_file.read()
-
-        base64_encoded = base64.b64encode(image_data).decode("utf-8")
-        return base64_encoded
-
-
 base64_image = image_to_base64(file_path)
 
 

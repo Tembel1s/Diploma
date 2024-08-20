@@ -1,3 +1,4 @@
+import base64
 import json
 import logging
 
@@ -71,3 +72,13 @@ def response_logging(response: Response):
     logging.info("Request: " + response.request.url)
     logging.info("Response code " + str(response.status_code))
     logging.info("Response text: " + response.text)
+
+
+
+
+def image_to_base64(image_path):
+
+    with open(image_path, "rb") as image_file:
+        image_data = image_file.read()
+        base64_encoded = base64.b64encode(image_data).decode("utf-8")
+    return base64_encoded
