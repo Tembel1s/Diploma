@@ -17,7 +17,7 @@ valid_password = os.getenv("FATSECRET_PASSWORD")
 user_name = os.getenv("FATSECRET_USER_NAME")
 user_id = os.getenv("FATSECRET_USER_ID")
 
-file_path = relative_path('tests/api/images/image.jpg')
+file_path = relative_path('fatsecret_tests_project/images/api_test_image.jpg')
 
 
 def image_to_base64(image_path):
