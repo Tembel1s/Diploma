@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from jsonschema import validate
 
 from fatsecret_tests_project.data.products import product_1
-from fatsecret_tests_project.schemas.schemas import frequent_foods
+from schemas.schemas import frequent_foods
 
 load_dotenv()
 
@@ -21,14 +21,14 @@ user_id = os.getenv("FATSECRET_USER_ID")
 @allure.title('"Recently Eaten" tab')
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_recently_eaten(url, get_cookies, api_request_json):
+def test_recently_eaten(url, get_cookies, api_request):
     auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = api_request_json(
+    response = api_request(
         url,
         endpoint=f'/ajax/JsonRecipeMulti.aspx?uid={user_id}&meal=1&mec=mor',
         method='POST',
@@ -56,14 +56,14 @@ def test_recently_eaten(url, get_cookies, api_request_json):
 @allure.title('"Most Eaten" tab')
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
-def test_most_eaten(url, get_cookies, api_request_json):
+def test_most_eaten(url, get_cookies, api_request):
     auth_cookies_value = get_cookies
 
     cookies = {
         ".FSASPXAUTH": f"{auth_cookies_value}",
     }
 
-    response = api_request_json(
+    response = api_request(
         url,
         endpoint=f'/ajax/JsonRecipeMulti.aspx?uid={user_id}&meal=1&mec=fav',
         method='POST',

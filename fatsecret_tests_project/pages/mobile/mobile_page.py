@@ -5,30 +5,124 @@ from selene import browser, have, be
 
 class UserFlow:
 
-    def click(self, button):
-        browser.element(button).should(be.clickable).click()
-
+    @allure.step('Click "Next"')
     def click_next(self):
         browser.element(
             (AppiumBy.ID, "com.fatsecret.android:id/floating_action_next_button")
         ).should(be.clickable).click()
+        return self
 
+    @allure.step('Click "Back"')
     def click_back(self):
         browser.element((AppiumBy.XPATH, "//android.widget.ImageButton")).should(
             be.clickable
         ).click()
+        return self
 
-    def check_if_user_directed_to_page(self, element, page_text):
-        browser.element(element).should(have.text(page_text))
+    @allure.step("Check user is on the welcome page")
+    def check_if_user_on_welcome_page(self):
+        browser.element(
+            (
+                AppiumBy.ID,
+                "com.fatsecret.android:id/registration_lets_begin_text_solid",
+            )
+        ).should(have.text("I am a new user"))
+        return self
 
-    def choose_option(self, element):
-        browser.element(element).should(be.clickable).click()
+    @allure.step('Click "I already have an account" button')
+    def click_sign_with_existing_account(self):
+        browser.element(
+            (AppiumBy.ID, "com.fatsecret.android:id/registration_sign_in_outline")
+        ).should(be.clickable).click()
+        return self
 
-    def check_pop_up(self, element):
-        browser.element(element).should(be.present)
+    @allure.step("Choose sign in with e-mail or member name option")
+    def choose_sign_up_with_email(self):
+        browser.element(
+            (AppiumBy.ID, "com.fatsecret.android:id/sign_in_sign_up_with_email")
+        ).should(be.clickable).click()
+        return self
+
+    @allure.step("Submit credentials")
+    def submit_credentials(self):
+        browser.element(
+            (
+                AppiumBy.XPATH,
+                "//*[@resource-id='com.fatsecret.android:id/sign_in_email_member_name_input']//*[@resource-id='com.fatsecret.android:id/input_row']//*[@resource-id='com.fatsecret.android:id/edit_text']",
+            )
+        ).should(be.clickable).click()
+
+        browser.element(
+            (
+                AppiumBy.XPATH,
+                "//*[@resource-id='com.fatsecret.android:id/sign_in_email_member_name_input']//*[@resource-id='com.fatsecret.android:id/input_row']//*[@resource-id='com.fatsecret.android:id/edit_text']",
+            )
+        ).should(be.clickable).click().send_keys("login")
+
+        browser.element(
+            (
+                AppiumBy.XPATH,
+                "//*[@resource-id='com.fatsecret.android:id/sign_in_password_input']//*[@resource-id='com.fatsecret.android:id/input_row']//*[@resource-id='com.fatsecret.android:id/edit_text']",
+            )
+        ).should(be.clickable).click().send_keys("password")
+        return self
+
+    @allure.step("Click Sign In")
+    def click_sign_in(self):
+        browser.element(
+            (
+                AppiumBy.ID,
+                "com.fatsecret.android:id/sign_in_sign_in_button",
+            )
+        ).should(be.clickable).click()
+        return self
+
+    @allure.step("Check captcha is appeared")
+    def check_captcha(self):
+        browser.element(
+            (
+                AppiumBy.XPATH,
+                '//android.widget.TextView[@text="Quick Verification"]',
+            )
+        ).should(be.present)
+        return self
 
     def send_keys(self, input_row, value):
         browser.element(input_row).should(be.clickable).click().send_keys(value)
+
+    @allure.step('Set "Weight loss" goal')
+    def choose_weight_loss_goal(self):
+        browser.element(
+            (AppiumBy.XPATH, '//android.widget.TextView[@text="Weight loss"]')
+        ).should(be.clickable).click()
+        return self
+
+    @allure.step("Check user directed to correct page")
+    def check_if_directed_to_correct_page(self, text):
+        browser.element(
+            (
+                AppiumBy.ID,
+                "com.fatsecret.android:id/title_text",
+            )
+        ).should(have.text(text))
+        return self
+
+    @allure.step('Set "Maintain my current weight" goal')
+    def choose_weight_maintain_goal(self):
+        browser.element(
+            (
+                AppiumBy.XPATH,
+                '//android.widget.TextView[@text="Maintain my current weight"]',
+            )
+        ).should(be.clickable).click()
+        return self
+
+    @allure.step('Set "Weight gain" goal')
+    def choose_weight_gain_goal(self):
+        browser.element(
+            (AppiumBy.XPATH, '//android.widget.TextView[@text="Weight gain"]')
+        ).should(be.clickable).click()
+        return self
 
 
 user_flow = UserFlow()
@@ -397,12 +491,12 @@ class Pages:
                         AppiumBy.ID,
                         "com.fatsecret.android:id/registration_default_region_text",
                     )
-                ).should(have.text("United States")).should(be.present)
+                ).should(have.text("United")).should(be.present)
                 with allure.step('Check "Other" option is present'):
                     browser.element(
                         (AppiumBy.XPATH, '//android.widget.TextView[@text="Other"]')
                     ).should(be.present)
-                    with allure.step('Click "United States" button'):
+                    with allure.step('Click "United" button'):
                         browser.element(
                             (
                                 AppiumBy.ID,
@@ -451,6 +545,7 @@ class Pages:
                 be.present
             )
 
+    @allure.step("Go to Goal Setting Page")
     def go_to_goal_setting_page(self):
         browser.element(
             (AppiumBy.ID, "com.fatsecret.android:id/registration_lets_begin_text_solid")
@@ -475,6 +570,7 @@ class Pages:
         browser.element(
             (AppiumBy.ID, "com.fatsecret.android:id/floating_action_next_button")
         ).should(be.clickable).click()
+        return self
 
 
 pages = Pages()

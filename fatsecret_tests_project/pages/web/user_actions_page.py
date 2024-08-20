@@ -1,3 +1,5 @@
+import time
+
 import allure
 from selene import browser, query
 from selene import have, be
@@ -86,13 +88,16 @@ class DeleteFood:
         browser.all("[title='edit']").element_by(have.text(product)).element(
             "../.."
         ).element("[title='delete this item']").should(be.present).click()
+        time.sleep(2)
         browser.switch_to.alert.accept()
+        time.sleep(2)
 
     @allure.step("Check deleted product in diary")
     def check_deleted_products_not_in_diary(self, product):
         browser.all("[title='edit']").element_by(have.text(product)).should(
             be.not_.present
         )
+        time.sleep(2)
 
     @allure.step("Clear Diary")
     def clear_diary(self):
@@ -100,6 +105,7 @@ class DeleteFood:
             have.size_greater_than(0)
         ):
             browser.element("[title='delete this item']").should(be.present).click()
+            time.sleep(2)
             browser.switch_to.alert.accept()
 
 

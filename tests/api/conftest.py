@@ -4,10 +4,7 @@ import pytest
 import requests
 from dotenv import load_dotenv
 
-from fatsecret_tests_project.utils.helpers import (
-    response_attaching_html,
-    response_logging,
-)
+from fatsecret_tests_project.utils.helpers import response_attaching_html, response_logging
 
 load_dotenv()
 
@@ -41,46 +38,17 @@ def get_cookies(url):
 
 
 @pytest.fixture(scope="function", autouse=True)
-def api_request_html():
-    def _api_request_html(
-        base_api_url, endpoint, method, data=None, params=None, cookies=None
-    ):
+def api_request():
+    def _api_request(base_api_url, endpoint, method, data=None, params=None, cookies=None):
         url = f"{base_api_url}{endpoint}"
         if params is None:
             params = {}
-        response = requests.request(
-            method,
-            url,
-            data=data,
-            params=params,
-            cookies=cookies,
-            allow_redirects=params.get("allow_redirects", True),
-        )
+        response = requests.request(method, url, data=data, params=params, cookies=cookies,
+                                    allow_redirects=params.get('allow_redirects', True))
         response_logging(response)
         response_attaching_html(response)
         return response
 
-    return _api_request_html
+    return _api_request
 
 
-@pytest.fixture(scope="function", autouse=True)
-def api_request_json():
-    def _api_request_json(
-        base_api_url, endpoint, method, data=None, params=None, cookies=None
-    ):
-        url = f"{base_api_url}{endpoint}"
-        if params is None:
-            params = {}
-        response = requests.request(
-            method,
-            url,
-            data=data,
-            params=params,
-            cookies=cookies,
-            allow_redirects=params.get("allow_redirects", True),
-        )
-        response_logging(response)
-        response_attaching_html(response)
-        return response
-
-    return _api_request_json
