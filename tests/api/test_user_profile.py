@@ -6,9 +6,9 @@ from allure_commons.types import Severity
 from dotenv import load_dotenv
 from jsonschema import validate
 
-from schemas.schemas import upload_photo
 from fatsecret_tests_project.utils.file_path import relative_path
 from fatsecret_tests_project.utils.helpers import image_to_base64
+from schemas.schemas import upload_photo
 
 load_dotenv()
 
@@ -28,10 +28,9 @@ base64_image = image_to_base64(file_path)
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
 def test_view_user_profile(url, get_cookies, api_request):
-    auth_cookies_value = get_cookies
 
     cookies = {
-        ".FSASPXAUTH": f"{auth_cookies_value}",
+        ".FSASPXAUTH": f"{get_cookies}",
     }
 
     response = api_request(url, endpoint=f"/member/{user_name}", method="GET", cookies=cookies)
@@ -53,13 +52,12 @@ def test_view_user_profile(url, get_cookies, api_request):
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.NORMAL)
 def test_fill_bio(url, get_cookies, api_request):
-    auth_cookies_value = get_cookies
     text = "kak dela"
 
     data = {"__EVENTTARGET": "ctl00$ctl11$ctl04", "ctl00$ctl11$Bio": f"{text}"}
 
     cookies = {
-        ".FSASPXAUTH": f"{auth_cookies_value}",
+        ".FSASPXAUTH": f"{get_cookies}",
     }
 
     response = api_request(url, endpoint="/Default.aspx?pa=mbe", method="POST", data=data, cookies=cookies)
@@ -80,7 +78,6 @@ def test_fill_bio(url, get_cookies, api_request):
 @allure.link("https://fatsecret.com/")
 @allure.severity(Severity.MINOR)
 def test_upload_photo(url, get_cookies, api_request):
-    auth_cookies_value = get_cookies
 
     data = {
         "image": base64_image,
@@ -90,7 +87,7 @@ def test_upload_photo(url, get_cookies, api_request):
     }
 
     cookies = {
-        ".FSASPXAUTH": f"{auth_cookies_value}",
+        ".FSASPXAUTH": f"{get_cookies}",
     }
 
     response = api_request(url, endpoint="/ajax/ImageUpload.aspx", method="POST", data=data, cookies=cookies)
