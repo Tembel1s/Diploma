@@ -8,7 +8,7 @@ from fatsecret_tests_project.utils import attach
 
 
 def pytest_addoption(parser):
-    parser.addoption("--context", default="bstack", help="Specify the test context")
+    parser.addoption("--context", default="local_emulator", help="Specify the test context")
 
 
 def pytest_configure(config):
